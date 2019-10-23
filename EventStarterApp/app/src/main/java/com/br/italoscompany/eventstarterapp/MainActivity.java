@@ -14,8 +14,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onClick(View view){
-        Intent intent = new Intent(this,CadastroDeUsuario.class);
+    public void Cadastro(View view){
+        Intent intent = new Intent(this, UserRegisterActivity.class);
+        startActivity(intent);
+    }
+
+    public void Home(View view){
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 }

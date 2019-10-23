@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0A0A0A"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0A0A0A"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#0A0A0A"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageLogo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/logo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/inputSenha"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="#C4C4C4"
+                        android:ems="10"
+                        android:hint="Digite sua senha"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/colorText" />
+
+                    <EditText
+                        android:id="@+id/inputLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="#C4C4C4"
+                        android:ems="10"
+                        android:hint="Digite seu login"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/colorText" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/buttonSalvar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent"
+                        android:text="Salvar"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorBtnText"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
