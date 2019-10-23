@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EventStarterApp</string>
+    <string name="selecionar_foto">Selecionar foto</string>
 </resources>
