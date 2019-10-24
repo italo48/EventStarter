@@ -37,19 +37,6 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/inputSenha"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginRight="30dp"
-                        android:background="@drawable/ic_border_cicle"
-                        android:ems="10"
-                        android:hint="Digite sua senha"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/colorText" />
-
-                    <EditText
                         android:id="@+id/inputLogin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -59,6 +46,19 @@
                         android:background="@drawable/ic_border_cicle"
                         android:ems="10"
                         android:hint="Digite seu login"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/colorText" />
+
+                    <EditText
+                        android:id="@+id/inputSenha"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/ic_border_cicle"
+                        android:ems="10"
+                        android:hint="Digite sua senha"
                         android:inputType="textPersonName"
                         android:textColor="@color/colorText" />
                 </LinearLayout>

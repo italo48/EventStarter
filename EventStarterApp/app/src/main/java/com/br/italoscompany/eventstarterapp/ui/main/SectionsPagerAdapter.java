@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.br.italoscompany.eventstarterapp.NewEventFragment;
+import com.br.italoscompany.eventstarterapp.PointOfSaleFragment;
 import com.br.italoscompany.eventstarterapp.R;
 
 /**
@@ -27,9 +29,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        Fragment fragment = null;
+        switch (position){
+            case 0:
+                fragment = new NewEventFragment();
+                break;
+            case 1:
+                fragment = new PointOfSaleFragment();
+                break;
+        }
+        return fragment;
     }
 
     @Nullable
