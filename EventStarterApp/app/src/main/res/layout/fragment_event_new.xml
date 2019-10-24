@@ -185,7 +185,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/buttonSalvar3"
+                android:id="@+id/buttonSalvarEvent"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
