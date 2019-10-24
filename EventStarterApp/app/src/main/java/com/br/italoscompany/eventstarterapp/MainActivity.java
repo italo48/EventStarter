@@ -23,4 +23,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
+
+    public void CadastroEvento(View view){
+        Intent intent = new Intent(this, EventRegisterActivity.class);
+        startActivity(intent);
+    }
 }
