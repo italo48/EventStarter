@@ -2,6 +2,6 @@
     <string name="app_name">EventStarterApp</string>
     <string name="selecionar_foto">Selecionar foto</string>
     <string name="title_activity_event_register">EventRegisterActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_1">Novo evento</string>
+    <string name="tab_text_2">Ponto de venda</string>
 </resources>
