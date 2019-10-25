@@ -27,7 +27,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull Adapter.MyViewHolder holder, int position) {
-        holder.nomeLocal.setText("teste1");
+        holder.nomeLocal.setText(pontosDeVendas.get(position));
     }
 
     @Override
