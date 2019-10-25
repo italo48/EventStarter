@@ -103,13 +103,29 @@
                 android:textSize="18sp"
                 android:layout_marginRight="30dp"/>
 
+            <TextView
+                android:id="@+id/informePointsRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="5dp"
+                android:text="Pontos de venda cadastrados"
+                android:textColor="@color/colorText"
+                android:textSize="18sp" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewPointSale"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_height="254dp"
+
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:background="@drawable/ic_border_cicle"
-                android:paddingLeft="20dp"/>
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="20dp"/>
 
         </LinearLayout>
     </ScrollView>
