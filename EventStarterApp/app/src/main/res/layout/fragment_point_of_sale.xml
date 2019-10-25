@@ -104,8 +104,12 @@
                 android:layout_marginRight="30dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewPointSale"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_border_cicle"
+                android:paddingLeft="20dp"/>
 
         </LinearLayout>
     </ScrollView>
