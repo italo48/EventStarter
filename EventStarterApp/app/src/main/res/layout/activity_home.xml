@@ -46,6 +46,7 @@
                         android:background="#C4C4C4"
                         android:ems="10"
                         android:hint="Digite sua senha"
+                        android:text="user1"
                         android:inputType="textPersonName"
                         android:textColor="@color/colorText" />
 
@@ -59,6 +60,7 @@
                         android:background="#C4C4C4"
                         android:ems="10"
                         android:hint="Digite seu login"
+                        android:text="1234"
                         android:inputType="textPersonName"
                         android:textColor="@color/colorText" />
                 </LinearLayout>
@@ -78,7 +80,7 @@
                         android:layout_marginRight="30dp"
                         android:layout_weight="1"
                         android:background="@color/colorAccent"
-                        android:text="Salvar"
+                        android:text="Entrar"
                         android:textAllCaps="false"
                         android:textColor="@color/colorBtnText"
                         android:textSize="18sp" />
