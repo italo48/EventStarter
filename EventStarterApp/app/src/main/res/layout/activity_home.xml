@@ -37,30 +37,38 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/inputSenha"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginRight="30dp"
-                        android:background="#C4C4C4"
-                        android:ems="10"
-                        android:hint="Digite sua senha"
-                        android:text="user1"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/colorText" />
-
-                    <EditText
                         android:id="@+id/inputLogin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         android:layout_marginTop="30dp"
                         android:layout_marginRight="30dp"
-                        android:background="#C4C4C4"
+                        android:background="@drawable/ic_border_cicle"
                         android:ems="10"
+<<<<<<< HEAD
+                        android:hint="Digite sua senha"
+                        android:text="user1"
+=======
+                        android:hint="Digite seu login"
+>>>>>>> a8c502d86017d176e17b33148a0f42083ca790ae
+                        android:inputType="textPersonName"
+                        android:textColor="@color/colorText" />
+
+                    <EditText
+                        android:id="@+id/inputSenha"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/ic_border_cicle"
+                        android:ems="10"
+<<<<<<< HEAD
                         android:hint="Digite seu login"
                         android:text="1234"
+=======
+                        android:hint="Digite sua senha"
+>>>>>>> a8c502d86017d176e17b33148a0f42083ca790ae
                         android:inputType="textPersonName"
                         android:textColor="@color/colorText" />
                 </LinearLayout>
