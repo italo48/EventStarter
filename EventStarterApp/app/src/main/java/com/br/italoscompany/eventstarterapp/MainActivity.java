@@ -14,6 +14,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void SplashScreen(View view){
+        Intent intent = new Intent(this, SplashScreenActivity.class);
+        startActivity(intent);
+    }
+
     public void Cadastro(View view){
         Intent intent = new Intent(this, UserRegisterActivity.class);
         startActivity(intent);

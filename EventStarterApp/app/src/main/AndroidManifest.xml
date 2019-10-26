@@ -10,12 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".SplashScreenActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
             android:name=".EventRegisterActivity"
             android:label="@string/title_activity_event_register"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".UserRegisterActivity" />
-        <activity android:name=".MainActivity">
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".UserRegisterActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+<!--            É aqui q diz qual activity vai ser rodada primeiro-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

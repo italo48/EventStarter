@@ -1,25 +1,22 @@
 package com.br.italoscompany.eventstarterapp.model;
 
 public class User {
-
-    private String nome;
+    private String name;
     private String email;
     private String login;
-    private String senha;
+    private String password;
 
-    public User(String nome, String email, String login, String senha) {
-        this.nome = nome;
-        this.email = email;
+    public User(String login, String pass) {
         this.login = login;
-        this.senha = senha;
+        this.password = pass;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -38,11 +35,11 @@ public class User {
         this.login = login;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

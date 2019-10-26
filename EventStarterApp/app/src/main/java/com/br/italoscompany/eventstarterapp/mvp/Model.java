@@ -1,6 +1,6 @@
 package com.br.italoscompany.eventstarterapp.mvp;
 
-import com.br.italoscompany.eventstarterapp.domain.User;
+import com.br.italoscompany.eventstarterapp.model.User;
 
 import java.util.ArrayList;
 import java.util.List;

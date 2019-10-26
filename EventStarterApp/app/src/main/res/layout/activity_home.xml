@@ -79,7 +79,7 @@
                         android:layout_marginTop="30dp"
                         android:layout_marginRight="30dp"
                         android:layout_weight="1"
-                        android:background="@color/colorAccent"
+                        android:background="@drawable/ic_border_cicle"
                         android:text="Entrar"
                         android:textAllCaps="false"
                         android:textColor="@color/colorBtnText"

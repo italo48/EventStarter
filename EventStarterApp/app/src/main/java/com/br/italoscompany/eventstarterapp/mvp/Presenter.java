@@ -1,9 +1,8 @@
 package com.br.italoscompany.eventstarterapp.mvp;
 
 import android.content.Context;
-import android.view.View;
 
-import com.br.italoscompany.eventstarterapp.domain.User;
+import com.br.italoscompany.eventstarterapp.model.User;
 
 public class Presenter implements MVP.PresenterImp {
 
