@@ -45,12 +45,8 @@
                         android:layout_marginRight="30dp"
                         android:background="@drawable/ic_border_cicle"
                         android:ems="10"
-<<<<<<< HEAD
-                        android:hint="Digite sua senha"
                         android:text="user1"
-=======
                         android:hint="Digite seu login"
->>>>>>> a8c502d86017d176e17b33148a0f42083ca790ae
                         android:inputType="textPersonName"
                         android:textColor="@color/colorText" />
 
@@ -63,12 +59,8 @@
                         android:layout_marginRight="30dp"
                         android:background="@drawable/ic_border_cicle"
                         android:ems="10"
-<<<<<<< HEAD
-                        android:hint="Digite seu login"
                         android:text="1234"
-=======
                         android:hint="Digite sua senha"
->>>>>>> a8c502d86017d176e17b33148a0f42083ca790ae
                         android:inputType="textPersonName"
                         android:textColor="@color/colorText" />
                 </LinearLayout>
