@@ -1,4 +1,4 @@
-package com.br.italoscompany.eventstarterapp.model;
+package com.br.italoscompany.eventstarterapp.model.entities;
 
 public class Adress {
     private String cep;

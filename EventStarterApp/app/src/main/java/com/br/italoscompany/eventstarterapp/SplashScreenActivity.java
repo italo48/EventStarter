@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.br.italoscompany.eventstarterapp.login.LoginActivity;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
@@ -21,7 +23,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void mostrarLogin() {
-        Intent intent = new Intent(SplashScreenActivity.this, HomeActivity.class);
+        Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }

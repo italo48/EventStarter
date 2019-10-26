@@ -17,7 +17,7 @@
             android:label="@string/title_activity_event_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".login.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".UserRegisterActivity"
