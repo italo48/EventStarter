@@ -2,37 +2,34 @@ package com.br.italoscompany.eventstarterapp.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.br.italoscompany.eventstarterapp.MainActivity;
 import com.br.italoscompany.eventstarterapp.R;
 
 public class LoginActivity extends AppCompatActivity implements ILoginView {
-
-    private LoginPresenter presenter;
-
-    private EditText edt_login, edt_password;
-    private Button btn_login;
+    private ILoginPresenter mrPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        if ( presenter == null)
-            presenter = new LoginPresenter(this);
+        if ( mrPresenter == null)
+            mrPresenter = new LoginPresenter(this);
 
-        btn_login = (Button) findViewById(R.id.buttonSalvar);
-        edt_login = (EditText) findViewById(R.id.inputLogin);
-        edt_password = (EditText) findViewById(R.id.inputSenha);
-
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        ((Button) findViewById(R.id.buttonSalvar))
+                .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.onLogin(edt_login.getText().toString(), edt_password.getText().toString());
+                mrPresenter.onLogin(
+                        ((EditText) findViewById(R.id.inputLogin)).getText().toString(),
+                        ((EditText) findViewById(R.id.inputSenha)).getText().toString());
             }
         });
     }
@@ -42,9 +39,17 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
-   @Override
-   public void onDestroy() {
-        presenter.onDestroy();
-        super.onDestroy();
+
+    @Override
+    public void goHome() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+    @Override
+   protected void onDestroy() {
+       mrPresenter.onDestroy();
+       super.onDestroy();
    }
 }

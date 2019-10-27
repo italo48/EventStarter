@@ -1,6 +1,7 @@
 package com.br.italoscompany.eventstarterapp.model.entities;
 
 public class User {
+    private long id;
     private String name;
     private String email;
     private String login;
@@ -41,5 +42,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
