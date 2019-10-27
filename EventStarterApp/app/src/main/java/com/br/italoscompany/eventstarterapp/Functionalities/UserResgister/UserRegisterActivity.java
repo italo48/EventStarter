@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.br.italoscompany.eventstarterapp.R;
 
-public class UserRegisterActivity extends AppCompatActivity {
+public class UserRegisterActivity extends AppCompatActivity implements IUserRegister.IView{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

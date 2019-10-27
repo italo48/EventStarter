@@ -3,12 +3,12 @@ package com.br.italoscompany.eventstarterapp.Functionalities.Login;
 import com.br.italoscompany.eventstarterapp.Model.IUserModel;
 import com.br.italoscompany.eventstarterapp.Model.data.UserDBMemory;
 
-public class LoginPresenter implements ILoginPresenter{
+public class LoginPresenter implements ILogin.IPresenter {
 
-    private ILoginView loginView;
+    private ILogin.IView loginView;
     private IUserModel userModel;
 
-    public LoginPresenter(ILoginView loginView) {
+    public LoginPresenter(ILogin.IView loginView) {
         this.loginView = loginView;
         this.userModel = new UserDBMemory();
     }

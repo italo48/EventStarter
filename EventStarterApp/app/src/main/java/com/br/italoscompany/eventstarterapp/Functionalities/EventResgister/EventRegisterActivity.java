@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.br.italoscompany.eventstarterapp.Adapters.SectionsPagerAdapter;
 
-public class EventRegisterActivity extends AppCompatActivity {
+public class EventRegisterActivity extends AppCompatActivity implements IEventRegister.IView{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

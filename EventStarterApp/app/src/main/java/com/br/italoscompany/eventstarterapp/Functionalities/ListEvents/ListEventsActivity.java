@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.br.italoscompany.eventstarterapp.R;
 
-public class ListEventsActivity extends AppCompatActivity {
+public class ListEventsActivity extends AppCompatActivity implements IListEvents.IView{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

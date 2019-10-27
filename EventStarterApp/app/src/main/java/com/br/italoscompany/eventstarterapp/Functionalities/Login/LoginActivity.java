@@ -12,8 +12,8 @@ import android.widget.Toast;
 import com.br.italoscompany.eventstarterapp.MainActivity;
 import com.br.italoscompany.eventstarterapp.R;
 
-public class LoginActivity extends AppCompatActivity implements ILoginView {
-    private ILoginPresenter mrPresenter;
+public class LoginActivity extends AppCompatActivity implements ILogin.IView {
+    private ILogin.IPresenter mrPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
