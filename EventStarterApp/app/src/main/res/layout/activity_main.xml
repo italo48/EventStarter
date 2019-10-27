@@ -38,6 +38,13 @@
             android:layout_height="wrap_content"
             android:onClick="CadastroEvento"
             android:text="cadastro de evento" />
+
+        <Button
+            android:id="@+id/buttonListEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ListaEventos"
+            android:text="lista de eventos" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

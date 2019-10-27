@@ -1,7 +1,7 @@
-package com.br.italoscompany.eventstarterapp.login;
+package com.br.italoscompany.eventstarterapp.Functionalities.Login;
 
-import com.br.italoscompany.eventstarterapp.model.IUserModel;
-import com.br.italoscompany.eventstarterapp.model.data.UserDBMemory;
+import com.br.italoscompany.eventstarterapp.Model.IUserModel;
+import com.br.italoscompany.eventstarterapp.Model.data.UserDBMemory;
 
 public class LoginPresenter implements ILoginPresenter{
 

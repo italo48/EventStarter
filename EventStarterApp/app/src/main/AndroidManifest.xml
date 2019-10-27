@@ -9,23 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Functionalities.ListEvents.ListEventsActivity"></activity>
         <activity
-            android:name=".SplashScreenActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity
-            android:name=".EventRegisterActivity"
+            android:name=".Functionalities.EventResgister.EventRegisterActivity"
             android:label="@string/title_activity_event_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".login.LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:name=".Functionalities.Login.LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".UserRegisterActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:name=".Functionalities.UserResgister.UserRegisterActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".Functionalities.SplashScreenActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-<!--            É aqui q diz qual activity vai ser rodada primeiro-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

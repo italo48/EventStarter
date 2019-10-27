@@ -1,13 +1,14 @@
-package com.br.italoscompany.eventstarterapp;
+package com.br.italoscompany.eventstarterapp.Functionalities.EventResgister;
 
 import android.os.Bundle;
 
+import com.br.italoscompany.eventstarterapp.R;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.br.italoscompany.eventstarterapp.ui.main.SectionsPagerAdapter;
+import com.br.italoscompany.eventstarterapp.Adapters.SectionsPagerAdapter;
 
 public class EventRegisterActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.br.italoscompany.eventstarterapp;
+package com.br.italoscompany.eventstarterapp.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,24 +9,26 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.br.italoscompany.eventstarterapp.R;
+
 import java.util.List;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
+public class PointSaleAdapter extends RecyclerView.Adapter<PointSaleAdapter.MyViewHolder> {
 
     List<String> pontosDeVendas;
-    public Adapter(List<String> pontosDeVendas){
+    public PointSaleAdapter(List<String> pontosDeVendas){
         this.pontosDeVendas = pontosDeVendas;
     }
 
     @NonNull
     @Override
-    public Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PointSaleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_point_of_sale, parent,false);
         return new MyViewHolder(itemLista);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Adapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PointSaleAdapter.MyViewHolder holder, int position) {
         holder.nomeLocal.setText(pontosDeVendas.get(position));
     }
 

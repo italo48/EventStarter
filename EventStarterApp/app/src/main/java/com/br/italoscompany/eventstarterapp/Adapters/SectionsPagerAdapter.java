@@ -1,4 +1,4 @@
-package com.br.italoscompany.eventstarterapp.ui.main;
+package com.br.italoscompany.eventstarterapp.Adapters;
 
 import android.content.Context;
 
@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.br.italoscompany.eventstarterapp.NewEventFragment;
-import com.br.italoscompany.eventstarterapp.PointOfSaleFragment;
+import com.br.italoscompany.eventstarterapp.Functionalities.EventResgister.NewEventFragment;
+import com.br.italoscompany.eventstarterapp.Functionalities.EventResgister.PointOfSaleFragment;
 import com.br.italoscompany.eventstarterapp.R;
 
 /**

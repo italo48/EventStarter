@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00070707"
-    tools:context=".UserRegisterActivity">
+    tools:context=".Functionalities.UserResgister.UserRegisterActivity">
 
     <ScrollView
         android:layout_width="match_parent"

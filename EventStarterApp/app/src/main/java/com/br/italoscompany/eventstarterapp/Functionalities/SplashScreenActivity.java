@@ -1,4 +1,4 @@
-package com.br.italoscompany.eventstarterapp;
+package com.br.italoscompany.eventstarterapp.Functionalities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.br.italoscompany.eventstarterapp.login.LoginActivity;
+import com.br.italoscompany.eventstarterapp.Functionalities.Login.LoginActivity;
+import com.br.italoscompany.eventstarterapp.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

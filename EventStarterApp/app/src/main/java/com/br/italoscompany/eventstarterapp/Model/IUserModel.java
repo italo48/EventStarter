@@ -1,6 +1,6 @@
-package com.br.italoscompany.eventstarterapp.model;
+package com.br.italoscompany.eventstarterapp.Model;
 
-import com.br.italoscompany.eventstarterapp.model.entities.User;
+import com.br.italoscompany.eventstarterapp.Model.entities.User;
 
 import java.util.List;
 

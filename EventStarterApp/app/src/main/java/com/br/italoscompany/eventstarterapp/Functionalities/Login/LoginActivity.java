@@ -1,4 +1,4 @@
-package com.br.italoscompany.eventstarterapp.login;
+package com.br.italoscompany.eventstarterapp.Functionalities.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 

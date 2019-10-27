@@ -1,4 +1,4 @@
-package com.br.italoscompany.eventstarterapp.model.entities;
+package com.br.italoscompany.eventstarterapp.Model.entities;
 
 public class EventOfSale {
     private String nomeDoEstabelecimento;
