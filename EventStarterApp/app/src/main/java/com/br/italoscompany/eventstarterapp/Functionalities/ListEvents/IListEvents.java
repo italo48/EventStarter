@@ -1,5 +1,6 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.ListEvents;
 
+import android.content.Context;
 import android.widget.SearchView;
 
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
@@ -15,6 +16,8 @@ public interface IListEvents {
 
     interface IPresenter {
         void showDetails(int id);
+        void searchEvent(String nameEvent);
         void showEvents();
+        void onDestroy();
     }
 }

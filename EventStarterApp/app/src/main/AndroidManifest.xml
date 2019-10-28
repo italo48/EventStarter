@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Functionalities.ListEvents.ListEventsActivity" />
+        <activity android:name=".Functionalities.UserDashboard.UserDashboardActivity"></activity>
+        <activity android:name=".Functionalities.ListEvents.ListEventsActivity" />
         <activity
             android:name=".Functionalities.EventResgister.EventRegisterActivity"
             android:label="@string/title_activity_event_register"
@@ -23,7 +23,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Functionalities.SplashScreenActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">

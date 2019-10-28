@@ -5,20 +5,18 @@ import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Adapters.EventListAdapter;
+import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.R;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 public class ListEventsActivity extends AppCompatActivity implements IListEvents.IView  {
@@ -44,7 +42,6 @@ public class ListEventsActivity extends AppCompatActivity implements IListEvents
         rv.setLayoutManager(llm);
 
         adapter = new EventListAdapter(mrPresenter);
-
 //        isso ta certo?
         mrPresenter.showEvents();
     }
@@ -61,14 +58,28 @@ public class ListEventsActivity extends AppCompatActivity implements IListEvents
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.perfil:
+                goUserDashboard();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     public boolean onQueryTextSubmit(String query) {
         // User pressed the search button
+        mrPresenter.searchEvent(query);
         return false;
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
         // User changed the text
+        mrPresenter.searchEvent(newText);
         return false;
     }
 
@@ -81,5 +92,16 @@ public class ListEventsActivity extends AppCompatActivity implements IListEvents
     public void showListEventAdapter(List<Event> events) {
         adapter.setEventList(events);
         rv.setAdapter(adapter);
+    }
+
+    public void goUserDashboard() {
+        Intent i = new Intent(this, UserDashboardActivity.class);
+        startActivity(i);
+    }
+
+    @Override
+    protected void onDestroy() {
+        mrPresenter.onDestroy();
+        super.onDestroy();
     }
 }
