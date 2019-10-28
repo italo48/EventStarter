@@ -1,4 +1,4 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard;
 
-public class UserDashboardPresenter {
+public class UserDashboardPresenter implements IUserDashboard.IPresenter {
 }

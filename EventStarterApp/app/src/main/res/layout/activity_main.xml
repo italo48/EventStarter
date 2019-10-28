@@ -52,6 +52,13 @@
             android:layout_height="wrap_content"
             android:onClick="UsuarioDashboard"
             android:text="Dashboard do usuario" />
+
+        <Button
+            android:id="@+id/buttonUserPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="UsuarioPerfil"
+            android:text="Perfil do usuario" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

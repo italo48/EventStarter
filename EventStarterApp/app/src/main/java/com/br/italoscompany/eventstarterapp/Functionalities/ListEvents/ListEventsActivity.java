@@ -13,7 +13,7 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Adapters.EventListAdapter;
-import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
+import com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil.UserPerfilActivity;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.R;
 
@@ -62,7 +62,7 @@ public class ListEventsActivity extends AppCompatActivity implements IListEvents
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.perfil:
-                goUserDashboard();
+                goUserPerfil();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -94,8 +94,8 @@ public class ListEventsActivity extends AppCompatActivity implements IListEvents
         rv.setAdapter(adapter);
     }
 
-    public void goUserDashboard() {
-        Intent i = new Intent(this, UserDashboardActivity.class);
+    public void goUserPerfil() {
+        Intent i = new Intent(this, UserPerfilActivity.class);
         startActivity(i);
     }
 

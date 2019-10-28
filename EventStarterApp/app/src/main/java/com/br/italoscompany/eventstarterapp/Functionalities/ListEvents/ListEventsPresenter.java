@@ -29,7 +29,15 @@ public class ListEventsPresenter implements IListEvents.IPresenter {
     @Override
     public void showDetails(int id) {
         Event event = eventModel.getAllEvents().get(id);
-        mrsView.showToast(event.getNomeDoEvento() + ": O evento ocorrerá no dia {Data} no local {Endereço}");
+
+        if (event.getEndereco() == null || event.getData() == null)
+            mrsView.showToast("Erro ao exibir detalhes. Endereço ou data do evento é inválido");
+        else
+            mrsView.showToast(event.getNomeDoEvento() + ": O evento ocorrerá no dia"
+                    + event.getData().toString()
+                    + " no local: Rua " + event.getEndereco().getRua()
+                    + " no bairro " + event.getEndereco().getBairro()
+                    + " numero " + event.getEndereco().getNumero());
     }
 
     @Override

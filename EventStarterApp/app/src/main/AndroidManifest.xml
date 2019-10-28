@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Functionalities.UserDashboard.UserDashboardActivity"></activity>
+        <activity android:name=".Functionalities.UserPerfil.UserPerfilActivity"></activity>
+        <activity android:name=".Functionalities.UserDashboard.UserDashboardActivity" />
         <activity android:name=".Functionalities.ListEvents.ListEventsActivity" />
         <activity
             android:name=".Functionalities.EventResgister.EventRegisterActivity"

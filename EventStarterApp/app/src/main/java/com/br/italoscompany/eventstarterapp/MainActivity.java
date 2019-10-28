@@ -11,6 +11,7 @@ import com.br.italoscompany.eventstarterapp.Functionalities.ListEvents.ListEvent
 import com.br.italoscompany.eventstarterapp.Functionalities.Login.LoginActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.SplashScreenActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
+import com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil.UserPerfilActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserResgister.UserRegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void UsuarioDashboard(View view) {
         Intent intent = new Intent(this, UserDashboardActivity.class);
+        startActivity(intent);
+    }
+
+    public void UsuarioPerfil(View view) {
+        Intent intent = new Intent(this, UserPerfilActivity.class);
         startActivity(intent);
     }
 }
