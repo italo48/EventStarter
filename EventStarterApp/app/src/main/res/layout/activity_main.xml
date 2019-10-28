@@ -22,8 +22,8 @@
             android:id="@+id/btnHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="Home"
-            android:text="Home" />
+            android:onClick="Login"
+            android:text="Login" />
 
         <Button
             android:id="@+id/buttonTeste"
@@ -45,6 +45,13 @@
             android:layout_height="wrap_content"
             android:onClick="ListaEventos"
             android:text="lista de eventos" />
+
+        <Button
+            android:id="@+id/buttonUserDashb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="UsuarioDashboard"
+            android:text="Dashboard do usuario" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

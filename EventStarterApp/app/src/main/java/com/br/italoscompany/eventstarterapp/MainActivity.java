@@ -10,6 +10,7 @@ import com.br.italoscompany.eventstarterapp.Functionalities.EventResgister.Event
 import com.br.italoscompany.eventstarterapp.Functionalities.ListEvents.ListEventsActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.Login.LoginActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.SplashScreenActivity;
+import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserResgister.UserRegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Home(View view) {
+    public void Login(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
@@ -40,8 +41,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public  void ListaEventos(View view) {
+    public void ListaEventos(View view) {
         Intent intent = new Intent(this, ListEventsActivity.class);
+        startActivity(intent);
+    }
+
+    public void UsuarioDashboard(View view) {
+        Intent intent = new Intent(this, UserDashboardActivity.class);
         startActivity(intent);
     }
 }
