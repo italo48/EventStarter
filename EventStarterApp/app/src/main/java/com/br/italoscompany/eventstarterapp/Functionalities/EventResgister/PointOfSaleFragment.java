@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.br.italoscompany.eventstarterapp.R;
-import com.br.italoscompany.eventstarterapp.Adapters.PointSaleAdapter;
+import com.br.italoscompany.eventstarterapp.Adapters.OutletsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +29,12 @@ public class PointOfSaleFragment extends Fragment {
 
         inicializarLista();
         recyclerView = view.findViewById(R.id.recyclerViewPointSale);
-        PointSaleAdapter pointSaleAdapter = new PointSaleAdapter(pontosDeVendas);
+        OutletsAdapter outletsAdapter = new OutletsAdapter(pontosDeVendas);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(pointSaleAdapter);
+        recyclerView.setAdapter(outletsAdapter);
         return view;
     }
 

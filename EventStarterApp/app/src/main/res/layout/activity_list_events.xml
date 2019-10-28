@@ -5,11 +5,56 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".Functionalities.ListEvents.ListEventsActivity">
+    tools:context=".Functionalities.ListEvents.ListEventsActivity"
+    android:background="@color/colorPrimary">
 
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Teste"/>
+        android:text="Eventos na área"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:layout_marginBottom="25dp"
+        android:textColor="@color/colorText"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_event_list"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:background="@color/colorPrimary"
+        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            >
+
+            <SeekBar
+                android:id="@+id/seekBarKm"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/txtKm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:textColor="@color/colorText"
+                android:text="0km" />
+
+        </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBtnText"
+        android:background="@drawable/ic_border_cicle"
+        android:text="Buscar"/>
 
 </LinearLayout>

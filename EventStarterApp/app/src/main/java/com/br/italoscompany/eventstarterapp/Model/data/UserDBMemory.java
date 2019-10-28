@@ -1,12 +1,12 @@
 package com.br.italoscompany.eventstarterapp.Model.data;
 
-import com.br.italoscompany.eventstarterapp.Model.IUserModel;
+import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.br.italoscompany.eventstarterapp.Model.entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDBMemory implements IUserModel {
+public class UserDBMemory implements IModel.IUserModel {
     List<User> users;
 
     public UserDBMemory() {

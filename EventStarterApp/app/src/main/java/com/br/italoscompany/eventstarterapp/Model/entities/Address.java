@@ -1,12 +1,12 @@
 package com.br.italoscompany.eventstarterapp.Model.entities;
 
-public class Adress {
+public class Address {
     private String cep;
     private String bairro;
     private String rua;
     private String numero;
 
-    public Adress(String cep, String bairro, String rua, String numero) {
+    public Address(String cep, String bairro, String rua, String numero) {
         this.cep = cep;
         this.bairro = bairro;
         this.rua = rua;

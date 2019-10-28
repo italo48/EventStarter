@@ -1,11 +1,11 @@
 package com.br.italoscompany.eventstarterapp.Model.entities;
 
-public class EventOfSale {
+public class Outlets {
     private String nomeDoEstabelecimento;
     private int qtdIngressos;
     private String nomeDoEvento;
 
-    public EventOfSale(String nomeDoEstabelecimento, int qtdIngressos, String nomeDoEvento) {
+    public Outlets(String nomeDoEstabelecimento, int qtdIngressos, String nomeDoEvento) {
         this.nomeDoEstabelecimento = nomeDoEstabelecimento;
         this.qtdIngressos = qtdIngressos;
         this.nomeDoEvento = nomeDoEvento;

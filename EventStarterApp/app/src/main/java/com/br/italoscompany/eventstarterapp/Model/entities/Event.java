@@ -5,10 +5,14 @@ import java.util.Date;
 public class Event {
     private String nomeDoEvento;
     private Date data;
-    private Adress endereco;
+    private Address endereco;
     private String caminhoFoto;
 
-    public Event(String nomeDoEvento, Date data, Adress endereco, String caminhoFoto) {
+    public  Event() {
+
+    }
+
+    public Event(String nomeDoEvento, Date data, Address endereco, String caminhoFoto) {
         this.nomeDoEvento = nomeDoEvento;
         this.data = data;
         this.endereco = endereco;
@@ -31,11 +35,11 @@ public class Event {
         this.data = data;
     }
 
-    public Adress getEndereco() {
+    public Address getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Adress endereco) {
+    public void setEndereco(Address endereco) {
         this.endereco = endereco;
     }
 
