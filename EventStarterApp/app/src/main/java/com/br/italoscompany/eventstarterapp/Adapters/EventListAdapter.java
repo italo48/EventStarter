@@ -1,5 +1,6 @@
 package com.br.italoscompany.eventstarterapp.Adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.br.italoscompany.eventstarterapp.Functionalities.ListEvents.IListEvents;
+import com.br.italoscompany.eventstarterapp.MapsActivity;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.R;
 

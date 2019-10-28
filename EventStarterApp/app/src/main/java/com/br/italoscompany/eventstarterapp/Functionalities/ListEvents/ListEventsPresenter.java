@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
+import com.br.italoscompany.eventstarterapp.MapsActivity;
 import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.br.italoscompany.eventstarterapp.Model.data.EventDBMemory;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
@@ -28,9 +29,11 @@ public class ListEventsPresenter implements IListEvents.IPresenter {
 
     @Override
     public void showDetails(int id) {
+
         Event event = eventModel.getAllEvents().get(id);
 
         if (event.getEndereco() == null || event.getData() == null)
+
             mrsView.showToast("Erro ao exibir detalhes. Endereço ou data do evento é inválido");
         else
             mrsView.showToast(event.getNomeDoEvento() + ": O evento ocorrerá no dia"
