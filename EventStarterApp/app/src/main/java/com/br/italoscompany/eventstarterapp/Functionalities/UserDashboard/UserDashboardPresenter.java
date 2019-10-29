@@ -1,12 +1,13 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard;
 
 import com.br.italoscompany.eventstarterapp.Model.IModel;
-import com.br.italoscompany.eventstarterapp.Model.data.EventDBMemory;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Location;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbEvent;
 
 
 public class UserDashboardPresenter implements IUserDashboard.IPresenter {
@@ -15,7 +16,7 @@ public class UserDashboardPresenter implements IUserDashboard.IPresenter {
 
     public UserDashboardPresenter(IUserDashboard.IView mrsView) {
         this.mrsView = mrsView;
-        this.eventModel = new EventDBMemory();
+        this.eventModel = dbEvent;
     }
 
     @Override
@@ -26,6 +27,7 @@ public class UserDashboardPresenter implements IUserDashboard.IPresenter {
     @Override
     public void showDetails(int id) {
         Event event = eventModel.getAllEvents().get(id);
+
 //        ta aqui, agora so precisamos saber de onde tirar essa latitude e longitude
         mrsView.goMapsActivity(new Location(-4.97813, -39.0188));
     }

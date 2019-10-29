@@ -10,15 +10,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
+import com.br.italoscompany.eventstarterapp.Functionalities.UserResgister.UserRegisterActivity;
 import com.br.italoscompany.eventstarterapp.R;
 
 public class LoginActivity extends AppCompatActivity implements ILogin.IView {
     private ILogin.IPresenter mrPresenter;
 
+    private Button btnGoUserRegister;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_login);
 
         if ( mrPresenter == null)
             mrPresenter = new LoginPresenter(this);
@@ -32,6 +35,15 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
                         ((EditText) findViewById(R.id.inputSenha)).getText().toString());
             }
         });
+
+        btnGoUserRegister = (Button) findViewById(R.id.btnUserRegister);
+        btnGoUserRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goUserRegisterForm();
+            }
+        });
+
     }
 
     @Override
@@ -46,6 +58,11 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
         i.putExtra("userId", userId);
         startActivity(i);
         finish();
+    }
+
+    public void  goUserRegisterForm() {
+        Intent i = new Intent(this, UserRegisterActivity.class);
+        startActivity(i);
     }
 
     @Override

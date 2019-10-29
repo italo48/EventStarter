@@ -1,8 +1,9 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.Login;
 
 import com.br.italoscompany.eventstarterapp.Model.IModel;
-import com.br.italoscompany.eventstarterapp.Model.data.UserDBMemory;
 import com.br.italoscompany.eventstarterapp.Model.entities.User;
+
+import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbUser;
 
 public class LoginPresenter implements ILogin.IPresenter {
 
@@ -11,7 +12,7 @@ public class LoginPresenter implements ILogin.IPresenter {
 
     public LoginPresenter(ILogin.IView loginView) {
         this.loginView = loginView;
-        this.userModel = new UserDBMemory();
+        this.userModel = dbUser;
     }
 
     @Override

@@ -1,7 +1,8 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil;
 
 import com.br.italoscompany.eventstarterapp.Model.IModel;
-import com.br.italoscompany.eventstarterapp.Model.data.UserDBMemory;
+
+import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbUser;
 
 public class UserPerfilPresenter implements IUserPerfil.IPresenter {
 
@@ -11,7 +12,7 @@ public class UserPerfilPresenter implements IUserPerfil.IPresenter {
 
     public UserPerfilPresenter(IUserPerfil.IView v) {
         this.userIView = v;
-        this.userModel = new UserDBMemory();
+        this.userModel = dbUser;
     }
 
     @Override
