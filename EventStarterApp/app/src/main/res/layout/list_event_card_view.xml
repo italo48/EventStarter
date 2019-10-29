@@ -38,7 +38,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_margin="5dp"
                 android:background="@drawable/ic_border_cicle"
-                android:onClick="mostrarMapa"
                 android:text="Detalhes"
                 android:textColor="@color/colorBtnText"
                 app:layout_constraintBottom_toBottomOf="parent"

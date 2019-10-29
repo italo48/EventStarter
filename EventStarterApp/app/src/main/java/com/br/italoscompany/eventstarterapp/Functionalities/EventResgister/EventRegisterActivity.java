@@ -1,10 +1,7 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.EventResgister;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
-import com.br.italoscompany.eventstarterapp.MapsActivity;
 import com.br.italoscompany.eventstarterapp.R;
 import com.google.android.material.tabs.TabLayout;
 

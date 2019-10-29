@@ -11,7 +11,23 @@ public class UserDBMemory implements IModel.IUserModel {
 
     public UserDBMemory() {
         this.users = new ArrayList<>();
-        this.users.add(new User("user1", "1234"));
+
+        User u1 = new User();
+        u1.setId(1);
+        u1.setEmail("luanderson@gmail.com");
+        u1.setLogin("user1");
+        u1.setName("Luanderson Lindo");
+        u1.setPassword("1234");
+
+        User u2 = new User();
+        u2.setId(2);
+        u2.setEmail("italo@gmail.com");
+        u2.setLogin("user2");
+        u2.setName("Ítalo O Costa");
+        u2.setPassword("1234");
+
+        this.users.add(u1);
+        this.users.add(u2);
     }
 
     @Override

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".Functionalities.ListEvents.ListEventsActivity"
+    tools:context=".Functionalities.UserDashboard.UserDashboardActivity"
     android:background="@color/colorPrimary">
 
     <TextView

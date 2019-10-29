@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.br.italoscompany.eventstarterapp.MainActivity;
+import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
 import com.br.italoscompany.eventstarterapp.R;
 
 public class LoginActivity extends AppCompatActivity implements ILogin.IView {
@@ -41,8 +41,9 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
 
 
     @Override
-    public void goHome() {
-        Intent i = new Intent(this, MainActivity.class);
+    public void goHome(long userId) {
+        Intent i = new Intent(this, UserDashboardActivity.class);
+        i.putExtra("userId", userId);
         startActivity(i);
         finish();
     }

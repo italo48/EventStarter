@@ -9,7 +9,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center"
+        >
 
         <Button
             android:id="@+id/buttonSplashScreenEvent"
@@ -29,7 +31,7 @@
             android:id="@+id/buttonTeste"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="Cadastro"
+            android:onClick="CadastroUsuario"
             android:text="Cadastro de usuario" />
 
         <Button
@@ -37,14 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="CadastroEvento"
-            android:text="cadastro de evento" />
-
-        <Button
-            android:id="@+id/buttonListEvent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="ListaEventos"
-            android:text="lista de eventos" />
+            android:text="Cadastro de evento" />
 
         <Button
             android:id="@+id/buttonUserDashb"
@@ -59,6 +54,13 @@
             android:layout_height="wrap_content"
             android:onClick="UsuarioPerfil"
             android:text="Perfil do usuario" />
+
+        <Button
+            android:id="@+id/buttonMaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Maps"
+            android:text="Maps" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

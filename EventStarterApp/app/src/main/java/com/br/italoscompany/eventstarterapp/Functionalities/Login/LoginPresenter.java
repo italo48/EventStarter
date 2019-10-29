@@ -2,6 +2,7 @@ package com.br.italoscompany.eventstarterapp.Functionalities.Login;
 
 import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.br.italoscompany.eventstarterapp.Model.data.UserDBMemory;
+import com.br.italoscompany.eventstarterapp.Model.entities.User;
 
 public class LoginPresenter implements ILogin.IPresenter {
 
@@ -21,11 +22,15 @@ public class LoginPresenter implements ILogin.IPresenter {
 
     @Override
     public void onLogin(String login, String password) {
-        if (userModel.existsUserByLoginAndPassword(login, password)){
-            loginView.onLoginResult("Login success");
-            loginView.goHome();
+        boolean loginFalied = true;
+        for (User u : this.userModel.getAllUsers()) {
+            if (u.getLogin().equals(login) && u.getPassword().equals(password)) {
+                loginFalied = false;
+                loginView.onLoginResult("Login success");
+                loginView.goHome(u.getId());
+            }
         }
-        else
+        if(loginFalied)
             loginView.onLoginResult("Login fail");
     }
 }

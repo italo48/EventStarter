@@ -1,6 +1,5 @@
 package com.br.italoscompany.eventstarterapp.Adapters;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,19 +9,18 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.br.italoscompany.eventstarterapp.Functionalities.ListEvents.IListEvents;
-import com.br.italoscompany.eventstarterapp.MapsActivity;
+import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.IUserDashboard;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.R;
 
 import java.util.List;
 
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.EventViewHolder> {
-    private IListEvents.IPresenter presenter;
+    private IUserDashboard.IPresenter presenter;
 
     private List<Event> eventList;
 
-    public EventListAdapter(IListEvents.IPresenter presenter) {
+    public EventListAdapter(IUserDashboard.IPresenter presenter) {
         this.presenter = presenter;
     }
 
