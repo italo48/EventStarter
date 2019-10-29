@@ -5,6 +5,7 @@ import com.br.italoscompany.eventstarterapp.Model.entities.User;
 public interface IUserPerfil {
 
     interface IView {
+        void showToast(String msg);
         void showUser(User user);
     }
 

@@ -18,6 +18,7 @@ public class UserDBMemory implements IModel.IUserModel {
         u1.setLogin("user1");
         u1.setName("Luanderson Lindo");
         u1.setPassword("1234");
+        u1.setPhotoDir("");
 
         User u2 = new User();
         u2.setId(2);
@@ -25,6 +26,7 @@ public class UserDBMemory implements IModel.IUserModel {
         u2.setLogin("user2");
         u2.setName("Ítalo O Costa");
         u2.setPassword("1234");
+        u1.setPhotoDir("");
 
         this.users.add(u1);
         this.users.add(u2);

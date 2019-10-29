@@ -121,8 +121,6 @@ public class UserRegisterActivity extends AppCompatActivity implements IUserRegi
 //                File storageDir = this.getDir("images", Context.MODE_PRIVATE);
                 photoFile = File.createTempFile("PHOTOAPP", ".jpg", storageDir);
                 mCurrentPhotoPath = "file:" + photoFile.getAbsolutePath();
-
-                Toast.makeText(this, mCurrentPhotoPath, Toast.LENGTH_LONG).show();
             }
             catch(IOException ex){
                 Toast.makeText(getApplicationContext(), "Erro ao tirar a foto", Toast.LENGTH_SHORT).show();

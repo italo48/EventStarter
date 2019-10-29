@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserResgister.UserRegisterActivity;
+import com.br.italoscompany.eventstarterapp.MainActivity;
 import com.br.italoscompany.eventstarterapp.R;
 
 public class LoginActivity extends AppCompatActivity implements ILogin.IView {
@@ -33,6 +34,13 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
                 mrPresenter.onLogin(
                         ((EditText) findViewById(R.id.inputLogin)).getText().toString(),
                         ((EditText) findViewById(R.id.inputSenha)).getText().toString());
+            }
+        });
+
+        ((Button) findViewById(R.id.buttonDev)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goMain();
             }
         });
 
@@ -62,6 +70,11 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
 
     public void  goUserRegisterForm() {
         Intent i = new Intent(this, UserRegisterActivity.class);
+        startActivity(i);
+    }
+
+    public void goMain() {
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
 

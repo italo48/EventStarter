@@ -41,8 +41,16 @@ public class UserPerfilActivity extends AppCompatActivity implements IUserPerfil
     }
 
     @Override
+    public void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void showUser(User user) {
-        imageViewFtPerfil.setImageURI(Uri.parse(user.getPhotoDir()));
+        if (user.getPhotoDir().isEmpty() || user.getPhotoDir() == null)
+            showToast("Foto não encontrada");
+        else
+            imageViewFtPerfil.setImageURI(Uri.parse(user.getPhotoDir()));
         textViewIdUser.setText("ID: " + user.getId());
         textViewUseName.setText("Nome: " + user.getName());
         textViewUseEmail.setText("Email: " + user.getEmail());
