@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path name="EventStarterApp" path="Android/data/com.br.italoscompany.eventstarterapp/files/Pictures"/>
+    <files-path name="my_images" path="app_images/"/>
+</paths>

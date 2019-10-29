@@ -17,17 +17,19 @@ public class UserRegisterPresenter implements IUserRegister.IPresenter {
     }
 
     @Override
-    public void registerUser(String name, String email, String login, String password) {
-        if (name.isEmpty() || email.isEmpty() || login.isEmpty() || password.isEmpty()) {
+    public void registerUser(String name, String email, String login, String password, String picPath) {
+        if (name.isEmpty() || email.isEmpty() || login.isEmpty() || password.isEmpty() || picPath.isEmpty()) {
             iViewUserRegister.showToast("Erro ao cadastrar, algum campo não foi preenchido");
         } else {
-            id++;
+            id = this.userModel.getAllUsers().size() + 1;
             User user = new User();
             user.setId(id);
             user.setName(name);
             user.setEmail(email);
             user.setLogin(login);
             user.setPassword(password);
+            user.setPhotoDir(picPath);
+
             this.userModel.saveUser(user);
             iViewUserRegister.showToast("Cadastro realizado");
             iViewUserRegister.goLoginActivity();

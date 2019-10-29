@@ -34,7 +34,9 @@
                     android:id="@+id/imageAvatar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/foto_pessoal" />
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/foto_pessoal"
+                    />
 
                 <TextView
                     android:id="@+id/buttonFoto"

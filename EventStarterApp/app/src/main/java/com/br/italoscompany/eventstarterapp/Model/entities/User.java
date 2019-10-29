@@ -6,6 +6,8 @@ public class User {
     private String email;
     private String login;
     private String password;
+    private String photoDir;
+    private String descript;
 
     public  User(){
 
@@ -54,5 +56,21 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getPhotoDir() {
+        return photoDir;
+    }
+
+    public void setPhotoDir(String photoDir) {
+        this.photoDir = photoDir;
+    }
+
+    public String getDescript() {
+        return descript;
+    }
+
+    public void setDescript(String descript) {
+        this.descript = descript;
     }
 }
