@@ -11,19 +11,19 @@ public class EventDBMemory implements IModel.IEventModel {
 
     public EventDBMemory() {
         events = new ArrayList<>();
-        events.add(new Event("Pacce o som", null, null, "teste"));
-        events.add(new Event("Calourada da UFC", null, null, "teste"));
-        events.add(new Event("Calourada de Odonto da Católica", null, null, "teste"));
-        events.add(new Event("Calourada de Odonto da Cisnei", null, null, "teste"));
-        events.add(new Event("Show do Rappa no Matulão", null, null, "teste"));
-        events.add(new Event("Festival da cerveja", null, null, "teste"));
-        events.add(new Event("Festival da carne", null, null, "teste"));
-        events.add(new Event("Social do Gordim", null, null, "teste"));
-        events.add(new Event("Aniversário do Josman", null, null, "teste"));
-        events.add(new Event("Aniversário do Asis", null, null, "teste"));
-        events.add(new Event("Protesto contra algo", null, null, "teste"));
-        events.add(new Event("Natal", null, null, "teste"));
-        events.add(new Event("Jogar bosta na casa do Ilário", null, null, "teste"));
+        events.add(new Event("Pacce o som", null, null, null));
+        events.add(new Event("Calourada da UFC", null, null, null));
+        events.add(new Event("Calourada de Odonto da Católica", null, null, null));
+        events.add(new Event("Calourada de Odonto da Cisnei", null, null, null));
+        events.add(new Event("Show do Rappa no Matulão", null, null, null));
+        events.add(new Event("Festival da cerveja", null, null, null));
+        events.add(new Event("Festival da carne", null, null, null));
+        events.add(new Event("Social do Gordim", null, null, null));
+        events.add(new Event("Aniversário do Josman", null, null, null));
+        events.add(new Event("Aniversário do Asis", null, null, null));
+        events.add(new Event("Protesto contra algo", null, null, null));
+        events.add(new Event("Natal", null, null, null));
+        events.add(new Event("Jogar bosta na casa do Ilário", null, null, null));
     }
 
     @Override

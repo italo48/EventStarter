@@ -30,7 +30,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
     implementation 'com.google.android.gms:play-services-places:16.0.0'
-    implementation 'com.google.android.libraries.places:places-compat:1.1.0'
+    implementation 'com.google.android.libraries.places:places:1.1.0'
+    implementation 'com.karumi:dexter:5.0.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'

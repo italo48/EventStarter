@@ -23,6 +23,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="10dp"
+                android:onClick="back"
                 app:srcCompat="@drawable/ic_action_back" />
 
             <ImageView
@@ -30,15 +31,9 @@
                 android:layout_width="155dp"
                 android:layout_height="50dp"
                 android:layout_weight="2"
+                android:layout_marginRight="50dp"
                 app:srcCompat="@drawable/logo" />
 
-            <ImageView
-                android:id="@+id/buttonAvatar"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="5dp"
-                app:srcCompat="@drawable/foto_pessoal" />
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout

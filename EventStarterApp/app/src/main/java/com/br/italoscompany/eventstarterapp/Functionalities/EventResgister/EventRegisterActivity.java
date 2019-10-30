@@ -1,14 +1,19 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.EventResgister;
 
+
 import android.os.Bundle;
 
+
 import com.br.italoscompany.eventstarterapp.R;
+
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.br.italoscompany.eventstarterapp.Adapters.SectionsPagerAdapter;
+
+
 
 public class EventRegisterActivity extends AppCompatActivity implements IEventRegister.IView{
 
@@ -21,5 +26,6 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
+
     }
 }

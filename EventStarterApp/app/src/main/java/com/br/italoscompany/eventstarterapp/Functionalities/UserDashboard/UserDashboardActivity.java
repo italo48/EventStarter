@@ -13,6 +13,7 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Adapters.EventListAdapter;
+import com.br.italoscompany.eventstarterapp.EventRegisterActivity2;
 import com.br.italoscompany.eventstarterapp.Functionalities.EventResgister.EventRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.Maps.MapsActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil.UserPerfilActivity;
@@ -114,7 +115,7 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
 
     @Override
     public void goAddEventActivity() {
-        Intent i = new Intent(this, EventRegisterActivity.class);
+        Intent i = new Intent(this, EventRegisterActivity2.class);
         startActivity(i);
     }
 

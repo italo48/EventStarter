@@ -21,19 +21,20 @@
 
 
             <TextView
-                android:id="@+id/nomeBuscaEvento"
+                android:id="@+id/informeEndereco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="5dp"
-                android:text="Buscar evento:"
+                android:text="Endereço:"
                 android:textColor="@color/colorText"
                 android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/inputBuscarEvent"
+            <fragment
+                android:id="@+id/inputEnderecoPontoDeVenda"
+                android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -44,19 +45,19 @@
                 android:textColor="@color/colorText" />
 
             <TextView
-                android:id="@+id/informePontoDeVenda"
+                android:id="@+id/informaNomeDoLocal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="5dp"
-                android:text="Ponto de venda:"
+                android:text="Nome do Estabelecimento:"
                 android:textColor="@color/colorText"
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/inputPontoDeVenda"
+                android:id="@+id/inputNomeDoEstabelecimento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -119,7 +120,6 @@
                 android:id="@+id/recyclerViewPointSale"
                 android:layout_width="match_parent"
                 android:layout_height="254dp"
-
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/ic_border_cicle"

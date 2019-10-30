@@ -2,7 +2,7 @@ package com.br.italoscompany.eventstarterapp.Model;
 
 import com.br.italoscompany.eventstarterapp.Model.entities.Address;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
-import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
+import com.br.italoscompany.eventstarterapp.Model.entities.PointOfSala;
 import com.br.italoscompany.eventstarterapp.Model.entities.User;
 
 import java.util.List;
@@ -29,8 +29,8 @@ public interface IModel {
     }
 
     interface IOutletsModel {
-        void addOutlets(Outlets o);
+        void addOutlets(PointOfSala o);
         void deleteOutlets(int id);
-        List<Outlets> getAllOutlets();
+        List<PointOfSala> getAllOutlets();
     }
 }
