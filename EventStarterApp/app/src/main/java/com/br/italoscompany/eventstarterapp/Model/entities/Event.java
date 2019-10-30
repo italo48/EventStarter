@@ -3,16 +3,14 @@ package com.br.italoscompany.eventstarterapp.Model.entities;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Event {
+    private long id;
     private String nomeDoEvento;
     private String data;
     private LatLng location;
     private List<PointOfSala> pontosDevendas;
-
-    //private Address endereco;
 
     public  Event() {
 
@@ -24,6 +22,14 @@ public class Event {
         this.nomeDoEvento = nomeDoEvento;
         this.data = data;
         this.location = location;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getNomeDoEvento() {
