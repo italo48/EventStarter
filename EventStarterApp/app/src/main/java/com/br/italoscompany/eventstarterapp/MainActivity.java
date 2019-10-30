@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void CadastroPontoDeVenda(View view) {
         Intent intent = new Intent(this, OutletsRegisterActivity.class);
+        intent.putExtra("idEvent", 1);
         startActivity(intent);
     }
 

@@ -20,6 +20,6 @@ public class OutletsDBMemory implements IModel.IOutletsModel {
 
     @Override
     public List<Outlets> getAllOutlets() {
-        return outlets;
+        return this.outlets;
     }
 }

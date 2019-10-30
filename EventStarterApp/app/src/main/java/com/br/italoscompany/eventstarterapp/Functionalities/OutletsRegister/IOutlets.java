@@ -16,5 +16,7 @@ public interface IOutlets {
         void getOutlets();
         void saveOutlets(Outlets outlets);
         void outletsLinkEvent(int idEvent);
+        void setEmptyOutlets(int id);
+        boolean isOutletsEmpty();
     }
 }

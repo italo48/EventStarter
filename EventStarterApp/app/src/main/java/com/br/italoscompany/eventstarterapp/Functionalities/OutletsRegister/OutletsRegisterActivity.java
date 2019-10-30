@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Adapters.OutletsAdapter;
+import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.br.italoscompany.eventstarterapp.R;
 
@@ -73,7 +75,13 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
         btnFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mrPresenter.outletsLinkEvent(idEvent);
+                if(!mrPresenter.isOutletsEmpty()){
+                    mrPresenter.outletsLinkEvent(idEvent);
+                } else {
+                    mrPresenter.setEmptyOutlets(idEvent);
+                    showToast("Nenhum ponto de venda cadastrado");
+                }
+                goBack();
             }
         });
     }
@@ -87,5 +95,12 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
     public void showOutlets(List<Outlets> outletsList) {
         outletsAdapter.setOutlets(outletsList);
         recyclerViewOutlets.setAdapter(outletsAdapter);
+    }
+
+    public void goBack() {
+        Intent i = new Intent(this, UserDashboardActivity.class);
+        i.putExtra("userId", 1L);
+        startActivity(i);
+        finish();
     }
 }

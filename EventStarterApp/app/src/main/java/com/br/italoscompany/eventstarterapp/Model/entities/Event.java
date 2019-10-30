@@ -10,13 +10,14 @@ public class Event {
     private String nomeDoEvento;
     private String data;
     private LatLng location;
-    private List<PointOfSala> pontosDevendas;
+    private List<Outlets> pontosDevendas;
 
     public  Event() {
 
     }
 
-    public Event(String nomeDoEvento, String data, LatLng location, List<PointOfSala> pontosDevendas) {
+    public Event(int id, String nomeDoEvento, String data, LatLng location, List<Outlets> pontosDevendas) {
+        this.id = id;
         this.pontosDevendas = new ArrayList<>();
         this.pontosDevendas = pontosDevendas;
         this.nomeDoEvento = nomeDoEvento;
@@ -56,11 +57,11 @@ public class Event {
         this.location = location;
     }
 
-    public List<PointOfSala> getPontosDevendas() {
+    public List<Outlets> getPontosDevendas() {
         return pontosDevendas;
     }
 
-    public void setPontosDevendas(List<PointOfSala> pontosDevendas) {
+    public void setPontosDevendas(List<Outlets> pontosDevendas) {
         this.pontosDevendas = pontosDevendas;
     }
 }

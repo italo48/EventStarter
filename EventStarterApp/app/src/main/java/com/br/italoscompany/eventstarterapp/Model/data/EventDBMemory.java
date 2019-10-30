@@ -11,19 +11,19 @@ public class EventDBMemory implements IModel.IEventModel {
 
     public EventDBMemory() {
         events = new ArrayList<>();
-        events.add(new Event("Pacce o som", null, null, null));
-        events.add(new Event("Calourada da UFC", null, null, null));
-        events.add(new Event("Calourada de Odonto da Católica", null, null, null));
-        events.add(new Event("Calourada de Odonto da Cisnei", null, null, null));
-        events.add(new Event("Show do Rappa no Matulão", null, null, null));
-        events.add(new Event("Festival da cerveja", null, null, null));
-        events.add(new Event("Festival da carne", null, null, null));
-        events.add(new Event("Social do Gordim", null, null, null));
-        events.add(new Event("Aniversário do Josman", null, null, null));
-        events.add(new Event("Aniversário do Asis", null, null, null));
-        events.add(new Event("Protesto contra algo", null, null, null));
-        events.add(new Event("Natal", null, null, null));
-        events.add(new Event("Jogar bosta na casa do Ilário", null, null, null));
+        events.add(new Event(1, "Pacce o som", null, null, null));
+        events.add(new Event(2, "Calourada da UFC", null, null, null));
+        events.add(new Event(3, "Calourada de Odonto da Católica", null, null, null));
+        events.add(new Event(4, "Calourada de Odonto da Cisnei", null, null, null));
+        events.add(new Event(5, "Show do Rappa no Matulão", null, null, null));
+        events.add(new Event(6, "Festival da cerveja", null, null, null));
+        events.add(new Event(7, "Festival da carne", null, null, null));
+        events.add(new Event(8,"Social do Gordim", null, null, null));
+        events.add(new Event(9, "Aniversário do Josman", null, null, null));
+        events.add(new Event(10, "Aniversário do Asis", null, null, null));
+        events.add(new Event(11,"Protesto contra algo", null, null, null));
+        events.add(new Event(12, "Natal", null, null, null));
+        events.add(new Event(13,"Jogar bosta na casa do Ilário", null, null, null));
     }
 
     @Override

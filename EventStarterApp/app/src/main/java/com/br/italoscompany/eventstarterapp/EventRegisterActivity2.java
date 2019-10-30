@@ -10,8 +10,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.br.italoscompany.eventstarterapp.Functionalities.OutletsRegister.OutletsRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
-import com.br.italoscompany.eventstarterapp.Model.entities.PointOfSala;
+import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
@@ -60,7 +61,7 @@ public class EventRegisterActivity2 extends AppCompatActivity {
         String nameEvent = editTextNomeEvento.getText().toString();
         String dateEvent = editTextDataEvento.getText().toString();
         LatLng locationEvent = new LatLng(latitudeEvento,longitudeEvento);
-        List<PointOfSala> outlets = new ArrayList<>();
+        List<Outlets> outlets = new ArrayList<>();
 
         Event event = new Event();
         event.setId(1);
@@ -69,12 +70,14 @@ public class EventRegisterActivity2 extends AppCompatActivity {
         event.setLocation(locationEvent);
         event.setPontosDevendas(outlets);
 
+
+
         if(checkBoxPontosdeVendas.isChecked()){
-            Intent intentOutlets = new Intent(this,OutletsRegisterActivity.class);
-            intentOutlets.putExtra("id", event.getId());
+            Intent intentOutlets = new Intent(this, OutletsRegisterActivity.class);
+            intentOutlets.putExtra("idEvent", event.getId());
             startActivity(intentOutlets);
         }else{
-            Toast.makeText(this,"salvo no banco",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Salvo no banco",Toast.LENGTH_SHORT).show();
         }
     }
 
