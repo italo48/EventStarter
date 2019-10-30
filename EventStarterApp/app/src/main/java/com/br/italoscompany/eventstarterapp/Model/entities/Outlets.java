@@ -2,12 +2,14 @@ package com.br.italoscompany.eventstarterapp.Model.entities;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class PointOfSala {
+public class Outlets {
     private String nomeDoEstabelecimento;
     private int qtdIngressos;
     private LatLng location;
 
-    public PointOfSala(String nomeDoEstabelecimento, int qtdIngressos, LatLng nomeDoEvento) {
+    public Outlets(){ }
+
+    public Outlets(String nomeDoEstabelecimento, int qtdIngressos, LatLng location) {
         this.nomeDoEstabelecimento = nomeDoEstabelecimento;
         this.qtdIngressos = qtdIngressos;
         this.location = location;

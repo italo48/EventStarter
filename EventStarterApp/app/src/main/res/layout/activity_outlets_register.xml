@@ -5,12 +5,13 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="#070707"
-tools:context=".OutletsRegisterActivity">
+tools:context=".Functionalities.OutletsRegister.OutletsRegisterActivity">
 
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0A0A0A"
+    android:padding="20dp"
     >
 
     <LinearLayout
@@ -25,33 +26,29 @@ tools:context=".OutletsRegisterActivity">
             android:id="@+id/informeEndereco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginBottom="5dp"
             android:text="Endereço:"
             android:textColor="@color/colorText"
             android:textSize="18sp" />
 
-        <fragment
-            android:id="@+id/inputEnderecoPontoDeVenda"
-            android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/ic_border_cicle"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorText" />
+<!--        <fragment-->
+<!--            android:id="@+id/inputEnderecoPontoDeVenda"-->
+<!--            android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:background="@drawable/ic_border_cicle"-->
+<!--            android:ems="10"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:textColor="@color/colorText" />-->
 
         <TextView
             android:id="@+id/informaNomeDoLocal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginBottom="5dp"
             android:text="Nome do Estabelecimento:"
             android:textColor="@color/colorText"
@@ -61,8 +58,6 @@ tools:context=".OutletsRegisterActivity">
             android:id="@+id/inputNomeDoEstabelecimento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:background="@drawable/ic_border_cicle"
             android:ems="10"
             android:inputType="textPersonName"
@@ -72,9 +67,7 @@ tools:context=".OutletsRegisterActivity">
             android:id="@+id/informeQtdDeIngressos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginBottom="5dp"
             android:text="Quantidade de ingressos:"
             android:textColor="@color/colorText"
@@ -84,8 +77,6 @@ tools:context=".OutletsRegisterActivity">
             android:id="@+id/inputQtdDeIngressos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:background="@drawable/ic_border_cicle"
             android:ems="10"
             android:inputType="textPersonName"
@@ -95,7 +86,7 @@ tools:context=".OutletsRegisterActivity">
             android:id="@+id/buttonSalvarPontoVenda"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="0"
             android:background="@drawable/ic_button_save"
@@ -109,24 +100,28 @@ tools:context=".OutletsRegisterActivity">
             android:id="@+id/informePointsRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:text="Pontos de venda cadastrados"
             android:textColor="@color/colorText"
             android:textSize="18sp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewPointSale"
+            android:id="@+id/recyclerViewOutlets"
             android:layout_width="match_parent"
             android:layout_height="254dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/ic_border_cicle"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
             android:paddingTop="20dp"/>
+
+        <Button
+            android:id="@+id/btnFinish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_border_cicle"
+            android:layout_marginTop="10dp"
+            android:text="Concluir"/>
 
     </LinearLayout>
 </ScrollView>

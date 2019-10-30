@@ -37,6 +37,14 @@ public class EventDBMemory implements IModel.IEventModel {
     }
 
     @Override
+    public Event findEventById(int id) {
+        for (Event e : this.events)
+            if (e.getId() == id)
+                return e;
+        return null;
+    }
+
+    @Override
     public List<Event> getAllEvents() {
         return this.events;
     }

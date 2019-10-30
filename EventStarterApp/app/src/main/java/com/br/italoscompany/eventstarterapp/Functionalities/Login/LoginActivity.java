@@ -65,7 +65,6 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
         Intent i = new Intent(this, UserDashboardActivity.class);
         i.putExtra("userId", userId);
         startActivity(i);
-        finish();
     }
 
     public void  goUserRegisterForm() {

@@ -56,6 +56,13 @@
             android:text="Perfil do usuario" />
 
         <Button
+            android:id="@+id/buttonPontoDeV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="CadastroPontoDeVenda"
+            android:text="Cadastra PV" />
+
+        <Button
             android:id="@+id/buttonMaps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

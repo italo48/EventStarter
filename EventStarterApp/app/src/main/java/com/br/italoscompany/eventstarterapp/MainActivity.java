@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.br.italoscompany.eventstarterapp.Functionalities.EventResgister.EventRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.Maps.MapsActivity;
+import com.br.italoscompany.eventstarterapp.Functionalities.OutletsRegister.OutletsRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.Login.LoginActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.SplashScreenActivity;
@@ -40,7 +40,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CadastroEvento(View view) {
-        Intent intent = new Intent(this, EventRegisterActivity.class);
+        Intent intent = new Intent(this, EventRegisterActivity2.class);
+        startActivity(intent);
+    }
+
+    public void CadastroPontoDeVenda(View view) {
+        Intent intent = new Intent(this, OutletsRegisterActivity.class);
         startActivity(intent);
     }
 
