@@ -29,7 +29,8 @@ public class UserDashboardPresenter implements IUserDashboard.IPresenter {
         Event event = eventModel.getAllEvents().get(id);
 
 //        ta aqui, agora so precisamos saber de onde tirar essa latitude e longitude
-        mrsView.goMapsActivity(new Location(-4.97813, -39.0188));
+        //mrsView.goMapsActivity(new Location(-4.97813, -39.0188));
+        mrsView.goMapsActivity(new Location(event.getLocation().latitude, event.getLocation().longitude));
     }
 
     @Override

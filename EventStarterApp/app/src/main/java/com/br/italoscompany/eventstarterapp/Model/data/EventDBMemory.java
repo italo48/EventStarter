@@ -2,6 +2,7 @@ package com.br.italoscompany.eventstarterapp.Model.data;
 
 import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
+import com.br.italoscompany.eventstarterapp.Model.entities.Location;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.google.android.gms.maps.model.LatLng;
 
@@ -28,21 +29,25 @@ public class EventDBMemory implements IModel.IEventModel {
         outlets2.add(new Outlets(50,"HotLine Academia", 100, new LatLng(-4.969696, -39.0083955)));
 
 
+        //duas localizaçoes de eventos
+        LatLng local1 = new LatLng( -4.9694863,-39.0182273);
+        LatLng local2 = new LatLng(-4.9675239,-39.0088084);
+
         //criando lista de eventos
         events = new ArrayList<>();
-        events.add(new Event(1, "Pacce o som", null, null, outlets));
-        events.add(new Event(2, "Calourada da UFC", null, null, outlets));
-        events.add(new Event(3, "Calourada de Odonto da Católica", null, null, outlets));
-        events.add(new Event(4, "Calourada de Odonto da Cisnei", null, null, outlets));
-        events.add(new Event(5, "Show do Rappa no Matulão", null, null, outlets));
-        events.add(new Event(6, "Festival da cerveja", null, null, outlets));
-        events.add(new Event(7, "Festival da carne", null, null, outlets2));
-        events.add(new Event(8,"Social do Gordim", null, null, outlets2));
-        events.add(new Event(9, "Aniversário do Josman", null, null, outlets2));
-        events.add(new Event(10, "Aniversário do Asis", null, null, outlets2));
-        events.add(new Event(11,"Protesto contra algo", null, null, outlets2));
+        events.add(new Event(1, "Pacce o som", null, local1, outlets));
+        events.add(new Event(2, "Calourada da UFC", null, local1, outlets));
+        events.add(new Event(3, "Calourada de Odonto da Católica", null, local1, outlets));
+        events.add(new Event(4, "Calourada de Odonto da Cisnei", null, local1, outlets));
+        events.add(new Event(5, "Show do Rappa no Matulão", null, local1, outlets));
+        events.add(new Event(6, "Festival da cerveja", null, local1, outlets));
+        events.add(new Event(7, "Festival da carne", null, local2, outlets2));
+        events.add(new Event(8,"Social do Gordim", null, local2, outlets2));
+        events.add(new Event(9, "Aniversário do Josman", null, local2, outlets2));
+        events.add(new Event(10, "Aniversário do Asis", null, local2, outlets2));
+        events.add(new Event(11,"Protesto contra algo", null, local2, outlets2));
         events.add(new Event(12, "Natal", null, null, outlets2));
-        events.add(new Event(13,"Jogar bosta na casa do Ilário", null, null, outlets2));
+        events.add(new Event(13,"Jogar bosta na casa do Ilário", null, local2, outlets2));
     }
 
     @Override

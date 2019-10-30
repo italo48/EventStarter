@@ -17,7 +17,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, IMaps.IView {
 
     private Location location;
-
     //dados do mapa
     private GoogleMap mMap;
     private LatLng city;
@@ -40,7 +39,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city, 8.5f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city, 17.0f));
         mMap.addMarker(new MarkerOptions()
                 .position(city)
                 .title("Nome do evento")
