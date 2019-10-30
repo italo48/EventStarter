@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Functionalities.OutletsRegister.OutletsRegisterActivity;
+import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
+import com.br.italoscompany.eventstarterapp.Model.data.EventDBMemory;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.google.android.gms.common.api.Status;
@@ -42,7 +44,11 @@ public class EventRegisterActivity2 extends AppCompatActivity {
             Place.Field.LAT_LNG);
     private AutocompleteSupportFragment places_fragment;
 
-    @Override
+    //teste de salvat evento
+    EventDBMemory eventDBMemory = new EventDBMemory();
+    //
+
+   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_register2);
@@ -63,26 +69,37 @@ public class EventRegisterActivity2 extends AppCompatActivity {
         LatLng locationEvent = new LatLng(latitudeEvento,longitudeEvento);
         List<Outlets> outlets = new ArrayList<>();
 
+        //teste de salvar evento
+        List<Event> eventAll = eventDBMemory.getAllEvents();
+        //
+
         Event event = new Event();
-        event.setId(1);
+        event.setId(eventAll.size()+1);
         event.setNomeDoEvento(nameEvent);
         event.setData(dateEvent);
         event.setLocation(locationEvent);
         event.setPontosDevendas(outlets);
 
-
+        //teste de salvar evento
+        eventDBMemory.addEvent(event);
+        //
 
         if(checkBoxPontosdeVendas.isChecked()){
             Intent intentOutlets = new Intent(this, OutletsRegisterActivity.class);
             intentOutlets.putExtra("idEvent", event.getId());
             startActivity(intentOutlets);
+            finish();
         }else{
-            Toast.makeText(this,"Salvo no banco",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,""+eventDBMemory.size(),Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, UserDashboardActivity.class);
+            intent.putExtra("userId", 1L);
+            startActivity(intent);
+            finish();
         }
     }
 
 
-    private void initPlaces() {
+   private void initPlaces() {
         Places.initialize(this,"AIzaSyAwTGV4CTXz02nESBRPZ3KLsbtbCeXcTCc");
         placesClient = Places.createClient(this);
     }
