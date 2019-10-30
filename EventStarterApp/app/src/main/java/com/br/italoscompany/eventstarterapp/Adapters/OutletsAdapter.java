@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,8 +38,15 @@ public class OutletsAdapter extends RecyclerView.Adapter<OutletsAdapter.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OutletsAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull OutletsAdapter.MyViewHolder holder, final int position) {
         holder.nomeLocal.setText(pontosDeVendas.get(position).getNomeDoEstabelecimento());
+        holder.btnDeleteOutlets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mrPresenter.deleteOutlets(pontosDeVendas.get(position).getId());
+                notifyItemChanged(position);
+            }
+        });
     }
 
     @Override
@@ -49,13 +57,13 @@ public class OutletsAdapter extends RecyclerView.Adapter<OutletsAdapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
         TextView nomeLocal;
-//        Button btnSaveOutlets;
+        ImageView btnDeleteOutlets;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             cv = itemView.findViewById(R.id.cv);
             nomeLocal = itemView.findViewById(R.id.tituloLocal);
-//            btnSaveOutlets = itemView.findViewById(R.id.buttonSalvarPontoVenda);
+            btnDeleteOutlets = itemView.findViewById(R.id.buttonDelete);
         }
     }
 }

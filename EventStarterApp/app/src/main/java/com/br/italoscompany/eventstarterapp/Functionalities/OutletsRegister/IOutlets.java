@@ -15,8 +15,10 @@ public interface IOutlets {
     interface IPresenter {
         void getOutlets();
         void saveOutlets(Outlets outlets);
+        void deleteOutlets(int idOutlets);
         void outletsLinkEvent(int idEvent);
         void setEmptyOutlets(int id);
         boolean isOutletsEmpty();
+
     }
 }

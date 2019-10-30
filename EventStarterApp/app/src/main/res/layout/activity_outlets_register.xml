@@ -79,7 +79,7 @@ tools:context=".Functionalities.OutletsRegister.OutletsRegisterActivity">
             android:layout_height="wrap_content"
             android:background="@drawable/ic_border_cicle"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:textColor="@color/colorText" />
 
         <Button

@@ -37,6 +37,11 @@ public class OutletsPesenter implements IOutlets.IPresenter {
     }
 
     @Override
+    public void deleteOutlets(int idOutlets) {
+        outletsModel.deleteOutlets(idOutlets);
+    }
+
+    @Override
     public void outletsLinkEvent(int idEvent) {
         Event e = eventModel.findEventById(idEvent);
         e.setPontosDevendas(this.outletsModel.getAllOutlets());
