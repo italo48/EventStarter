@@ -66,6 +66,9 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
 
                     mrPresenter.saveOutlets(o);
                     mrPresenter.getOutlets();
+
+                    editTextNameestablishment.setText("");
+                    editTextNumTickets.setText("");
                 } else {
                     showToast("Preencha os campos");
                 }
