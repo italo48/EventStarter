@@ -1,4 +1,4 @@
-package com.br.italoscompany.eventstarterapp;
+package com.br.italoscompany.eventstarterapp.Functionalities.EventRegister;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,15 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Functionalities.OutletsRegister.OutletsRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
-import com.br.italoscompany.eventstarterapp.Model.data.EventDBMemory;
-import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
+import com.br.italoscompany.eventstarterapp.R;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
@@ -23,16 +23,20 @@ import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-public class EventRegisterActivity2 extends AppCompatActivity {
+public class EventRegisterActivity extends AppCompatActivity implements IEventRegister.IView{
 
-    //pegando os campos
+    private int userId;
+
+    private IEventRegister.IPresenter mrPresenter;
+
     private EditText editTextNomeEvento;
     private EditText editTextDataEvento;
     private CheckBox checkBoxPontosdeVendas;
+    private Button btnSaveEvent;
     private double latitudeEvento;
     private double longitudeEvento;
 
@@ -44,58 +48,41 @@ public class EventRegisterActivity2 extends AppCompatActivity {
             Place.Field.LAT_LNG);
     private AutocompleteSupportFragment places_fragment;
 
-    //teste de salvat evento
-    EventDBMemory eventDBMemory = new EventDBMemory();
-    //
-
    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_register2);
 
-        //pegando os campos do layout
+        userId = getIntent().getExtras().getInt("idUser");
+       //autocomplete google
+       initPlaces();
+       setupAutoCompleteFragment();
+
+        if (mrPresenter == null)
+            mrPresenter = new EventRegisterPresenter(this);
+
         editTextNomeEvento = findViewById(R.id.inputNomeEvento);
         editTextDataEvento = findViewById(R.id.inputData);
         checkBoxPontosdeVendas = findViewById(R.id.checkBox);
+        btnSaveEvent = findViewById(R.id.buttonSalvarEvent);
 
-        //autocomplete google
-        initPlaces();
-        setupAutoCompleteFragment();
-    }
+        btnSaveEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mrPresenter.saveEvent(
+                        editTextNomeEvento.getText().toString(),
+                        editTextDataEvento.getText().toString(),
+                        new LatLng(latitudeEvento,longitudeEvento),
+                        Collections.<Outlets>emptyList());
 
-    public void salvarEvento (View view){
-        String nameEvent = editTextNomeEvento.getText().toString();
-        String dateEvent = editTextDataEvento.getText().toString();
-        LatLng locationEvent = new LatLng(latitudeEvento,longitudeEvento);
-        List<Outlets> outlets = new ArrayList<>();
-
-        //teste de salvar evento
-        List<Event> eventAll = eventDBMemory.getAllEvents();
-        //
-
-        Event event = new Event();
-        event.setId(eventAll.size()+1);
-        event.setNomeDoEvento(nameEvent);
-        event.setData(dateEvent);
-        event.setLocation(locationEvent);
-        event.setPontosDevendas(outlets);
-
-        //teste de salvar evento
-        eventDBMemory.addEvent(event);
-        //
-
-        if(checkBoxPontosdeVendas.isChecked()){
-            Intent intentOutlets = new Intent(this, OutletsRegisterActivity.class);
-            intentOutlets.putExtra("idEvent", event.getId());
-            startActivity(intentOutlets);
-            finish();
-        }else{
-            Toast.makeText(this,""+eventDBMemory.size(),Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, UserDashboardActivity.class);
-            intent.putExtra("userId", 1L);
-            startActivity(intent);
-            finish();
-        }
+                if(checkBoxPontosdeVendas.isChecked()){
+                    mrPresenter.addIdGoOutletsActivit();
+                }else {
+                    showToast("Evento cadastrado sem pontos de venda");
+                    goUserDashboard();
+                }
+            }
+        });
     }
 
 
@@ -114,13 +101,33 @@ public class EventRegisterActivity2 extends AppCompatActivity {
                 latitudeEvento = place.getLatLng().latitude;
                 longitudeEvento = place.getLatLng().longitude;
 
-                Toast.makeText(EventRegisterActivity2.this,""+place.getName(),Toast.LENGTH_LONG).show();
+                Toast.makeText(EventRegisterActivity.this,""+place.getName(),Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onError(@NonNull Status status) {
-                Toast.makeText(EventRegisterActivity2.this,""+status.getStatusMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(EventRegisterActivity.this,""+status.getStatusMessage(),Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void goOutletsActivity(int idEvent) {
+        Intent intentOutlets = new Intent(this, OutletsRegisterActivity.class);
+        intentOutlets.putExtra("idEvent", idEvent);
+        intentOutlets.putExtra("idUser", userId);
+        startActivity(intentOutlets);
+        finish();
+    }
+    public void goUserDashboard() {
+        Intent i = new Intent(this, UserDashboardActivity.class);
+        i.putExtra("idUser", userId);
+        startActivity(i);
+        finish();
     }
 }

@@ -13,11 +13,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Adapters.OutletsAdapter;
-import com.br.italoscompany.eventstarterapp.EventRegisterActivity2;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.br.italoscompany.eventstarterapp.R;
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.net.PlacesClient;
@@ -30,6 +30,7 @@ import java.util.List;
 public class OutletsRegisterActivity extends AppCompatActivity implements IOutlets.IView {
 
     private int idEvent;
+    private int idUser;
 
     private IOutlets.IPresenter mrPresenter;
     private OutletsAdapter outletsAdapter;
@@ -60,7 +61,8 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
         initPlaces();
         setupAutoCompleteFragment();
 
-        idEvent = Integer.parseInt(getIntent().getExtras().get("idEvent").toString());
+        idEvent = getIntent().getExtras().getInt("idEvent");
+        idUser = getIntent().getExtras().getInt("idUser");
 
         if (mrPresenter == null)
             mrPresenter = new OutletsPesenter(this);
@@ -87,7 +89,10 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
                     o.setNomeDoEstabelecimento(nameS);
                     o.setQtdIngressos(numTcks);
 
-                    mrPresenter.saveOutlets(o);
+                    mrPresenter.saveOutlets(
+                            editTextNameestablishment.getText().toString(),
+                            Integer.parseInt(editTextNumTickets.getText().toString()),
+                            new LatLng(latitudeOutlets, longitudeOutlets));
                     mrPresenter.getOutlets();
 
                     editTextNameestablishment.setText("");
@@ -125,7 +130,7 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
 
     public void goBack() {
         Intent i = new Intent(this, UserDashboardActivity.class);
-        i.putExtra("userId", 1L);
+        i.putExtra("userId", idUser);
         startActivity(i);
         finish();
     }

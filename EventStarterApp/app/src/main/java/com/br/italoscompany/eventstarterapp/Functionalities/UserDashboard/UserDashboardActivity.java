@@ -13,7 +13,7 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Adapters.EventListAdapter;
-import com.br.italoscompany.eventstarterapp.EventRegisterActivity2;
+import com.br.italoscompany.eventstarterapp.Functionalities.EventRegister.EventRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.Maps.MapsActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil.UserPerfilActivity;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
@@ -24,7 +24,7 @@ import java.util.List;
 
 public class UserDashboardActivity extends AppCompatActivity implements IUserDashboard.IView  {
 
-    private long userId;
+    private int userId;
 
     private IUserDashboard.IPresenter mrPresenter;
 
@@ -36,7 +36,7 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userdashboard);
-        userId = getIntent().getExtras().getLong("userId");
+        userId = getIntent().getExtras().getInt("userId");
 
         if (mrPresenter == null)
             mrPresenter = new UserDashboardPresenter(this);
@@ -114,8 +114,10 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
 
     @Override
     public void goAddEventActivity() {
-        Intent i = new Intent(this, EventRegisterActivity2.class);
+        Intent i = new Intent(this, EventRegisterActivity.class);
+        i.putExtra("idUser", userId);
         startActivity(i);
+        finish();
     }
 
     @Override

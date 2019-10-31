@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="#070707"
-tools:context=".EventRegisterActivity2">
+tools:context=".Functionalities.EventRegister.EventRegisterActivity">
 
 <ScrollView
     android:layout_width="match_parent"

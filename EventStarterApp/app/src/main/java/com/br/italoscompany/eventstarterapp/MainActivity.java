@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.br.italoscompany.eventstarterapp.Functionalities.EventRegister.EventRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.Maps.MapsActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.OutletsRegister.OutletsRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CadastroEvento(View view) {
-        Intent intent = new Intent(this, EventRegisterActivity2.class);
+        Intent intent = new Intent(this, EventRegisterActivity.class);
         startActivity(intent);
     }
 

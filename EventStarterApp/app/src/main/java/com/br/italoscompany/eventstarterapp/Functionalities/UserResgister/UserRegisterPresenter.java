@@ -7,7 +7,7 @@ import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbUser
 
 public class UserRegisterPresenter implements IUserRegister.IPresenter {
 
-    private static long id = 0;
+    private static int id = 0;
     private IUserRegister.IView iViewUserRegister;
     private IModel.IUserModel userModel;
 

@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Functionalities.OutletsRegister.OutletsRegisterActivity"></activity>
-        <activity android:name=".EventRegisterActivity2" />
+        <activity android:name=".Functionalities.EventRegister.EventRegisterActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
