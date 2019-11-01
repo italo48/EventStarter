@@ -9,6 +9,6 @@ public interface ILogin {
 
     interface IView {
         void onLoginResult(String msg);
-        void goHome(long userId);
+        void goHome(int userId);
     }
 }

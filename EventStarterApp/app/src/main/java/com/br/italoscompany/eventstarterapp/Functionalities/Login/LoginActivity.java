@@ -37,12 +37,12 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
             }
         });
 
-        ((Button) findViewById(R.id.buttonDev)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goMain();
-            }
-        });
+//        ((Button) findViewById(R.id.buttonDev)).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                goMain();
+//            }
+//        });
 
         btnGoUserRegister = (Button) findViewById(R.id.btnUserRegister);
         btnGoUserRegister.setOnClickListener(new View.OnClickListener() {
@@ -61,9 +61,9 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
 
 
     @Override
-    public void goHome(long userId) {
+    public void goHome(int userId) {
         Intent i = new Intent(this, UserDashboardActivity.class);
-        i.putExtra("userId", userId);
+        i.putExtra("idUser", userId);
         startActivity(i);
     }
 

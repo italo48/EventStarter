@@ -30,6 +30,7 @@ import java.util.List;
 public class EventRegisterActivity extends AppCompatActivity implements IEventRegister.IView{
 
     private int userId;
+    private boolean isLatitudeSet = false;
 
     private IEventRegister.IPresenter mrPresenter;
 
@@ -75,9 +76,11 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
                         new LatLng(latitudeEvento,longitudeEvento),
                         Collections.<Outlets>emptyList());
 
-                if(checkBoxPontosdeVendas.isChecked()){
+                if(checkBoxPontosdeVendas.isChecked() && !editTextNomeEvento.getText().toString().isEmpty()){
                     mrPresenter.addIdGoOutletsActivit();
-                }else {
+                }else if(editTextNomeEvento.getText().toString().isEmpty() || !isLatitudeSet || editTextDataEvento.getText().toString().isEmpty()) {
+                    showToast("Não é possivel cadastrar evento vazio");
+                } else {
                     showToast("Evento cadastrado sem pontos de venda");
                     goUserDashboard();
                 }
@@ -100,6 +103,7 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
             public void onPlaceSelected(@NonNull Place place) {
                 latitudeEvento = place.getLatLng().latitude;
                 longitudeEvento = place.getLatLng().longitude;
+                isLatitudeSet = true;
 
                 Toast.makeText(EventRegisterActivity.this,""+place.getName(),Toast.LENGTH_LONG).show();
             }

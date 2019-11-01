@@ -93,6 +93,7 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
                             editTextNameestablishment.getText().toString(),
                             Integer.parseInt(editTextNumTickets.getText().toString()),
                             new LatLng(latitudeOutlets, longitudeOutlets));
+
                     mrPresenter.getOutlets();
 
                     editTextNameestablishment.setText("");

@@ -12,7 +12,7 @@ public interface IUserDashboard {
     interface IView extends SearchView.OnQueryTextListener {
         void showToast(String msg);
         void showListEventAdapter(List<Event> events);
-        void goUserPerfilActivity(long userId);
+        void goUserPerfilActivity(int userId);
         void goAddEventActivity();
         void goMapsActivity(Location loc);
     }

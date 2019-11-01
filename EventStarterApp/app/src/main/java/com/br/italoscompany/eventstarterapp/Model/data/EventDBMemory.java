@@ -2,7 +2,6 @@ package com.br.italoscompany.eventstarterapp.Model.data;
 
 import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
-import com.br.italoscompany.eventstarterapp.Model.entities.Location;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.google.android.gms.maps.model.LatLng;
 

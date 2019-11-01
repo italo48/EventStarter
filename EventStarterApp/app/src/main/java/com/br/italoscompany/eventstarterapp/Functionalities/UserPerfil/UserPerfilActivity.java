@@ -2,7 +2,6 @@ package com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -14,7 +13,7 @@ import com.br.italoscompany.eventstarterapp.R;
 
 public class UserPerfilActivity extends AppCompatActivity implements IUserPerfil.IView{
 
-    private long userId;
+    private int userId;
 
     private IUserPerfil.IPresenter mrPresenter;
 
@@ -27,8 +26,9 @@ public class UserPerfilActivity extends AppCompatActivity implements IUserPerfil
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_perfil);
-        userId = getIntent().getExtras().getLong("userId");
-
+//        userId = Integer.parseInt(getIntent().getExtras().get("idUser").toString());
+        userId = getIntent().getExtras().getInt("idUser");
+//        userId = 1;
         if (mrPresenter == null)
             mrPresenter = new UserPerfilPresenter(this);
 

@@ -10,16 +10,14 @@ import java.util.List;
 import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbEvent;
 
 public class EventRegisterPresenter implements IEventRegister.IPresenter {
+    private int nextIdEvent;
     private IEventRegister.IView iViewEventRegister;
     private IModel.IEventModel iEventModel;
 
     public EventRegisterPresenter(IEventRegister.IView iView) {
         this.iViewEventRegister = iView;
         this.iEventModel = dbEvent;
-    }
-
-    private int takeId() {
-        return iEventModel.getAllEvents().size() + 1;
+        this.nextIdEvent = iEventModel.getAllEvents().size();
     }
 
     @Override
@@ -27,8 +25,9 @@ public class EventRegisterPresenter implements IEventRegister.IPresenter {
         if (name.isEmpty() || date.isEmpty() || loc == null || outletsList == null) {
             iViewEventRegister.showToast("Evento tem campos não preechidos");
         } else {
+            nextIdEvent++;
             Event e = new Event();
-            e.setId(takeId());
+            e.setId(nextIdEvent);
             e.setPontosDevendas(outletsList);
             e.setNomeDoEvento(name);
             e.setData(date);
@@ -40,6 +39,6 @@ public class EventRegisterPresenter implements IEventRegister.IPresenter {
 
     @Override
     public void addIdGoOutletsActivit() {
-        iViewEventRegister.goOutletsActivity(takeId());
+        iViewEventRegister.goOutletsActivity(nextIdEvent);
     }
 }

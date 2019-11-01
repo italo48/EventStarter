@@ -11,7 +11,7 @@ public interface IModel {
 
     interface IUserModel {
         void saveUser(User u);
-        User findUserById(long id);
+        User findUserById(int id);
         List<User> getAllUsers();
         boolean existsUserByLoginAndPassword(String login, String password);
     }

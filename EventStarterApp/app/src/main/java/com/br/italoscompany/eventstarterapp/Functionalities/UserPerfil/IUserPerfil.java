@@ -10,6 +10,6 @@ public interface IUserPerfil {
     }
 
     interface IPresenter {
-        void onShowUser(long userId) ;
+        void onShowUser(int userId) ;
     }
 }

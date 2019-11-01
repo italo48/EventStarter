@@ -38,7 +38,7 @@ public class UserDBMemory implements IModel.IUserModel {
     }
 
     @Override
-    public User findUserById(long id) {
+    public User findUserById(int id) {
         for (User u : this.users) {
             if (u.getId() == id)
                 return u;

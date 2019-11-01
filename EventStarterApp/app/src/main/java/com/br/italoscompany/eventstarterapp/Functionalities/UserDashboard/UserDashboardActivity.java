@@ -36,7 +36,7 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userdashboard);
-        userId = getIntent().getExtras().getInt("userId");
+        userId = getIntent().getExtras().getInt("idUser");
 
         if (mrPresenter == null)
             mrPresenter = new UserDashboardPresenter(this);
@@ -106,9 +106,9 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
     }
 
     @Override
-    public void goUserPerfilActivity(long userId) {
+    public void goUserPerfilActivity(int userId) {
         Intent i = new Intent(this, UserPerfilActivity.class);
-        i.putExtra("userId", userId);
+        i.putExtra("idUser", userId);
         startActivity(i);
     }
 

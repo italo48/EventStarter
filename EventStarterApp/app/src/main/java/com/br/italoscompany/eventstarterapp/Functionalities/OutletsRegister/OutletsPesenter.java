@@ -5,11 +5,7 @@ import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.google.android.gms.maps.model.LatLng;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbEvent;
 import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbOutlets;
@@ -33,7 +29,6 @@ public class OutletsPesenter implements IOutlets.IPresenter {
 
     @Override
     public void saveOutlets(String nameOutlets, int numTickets, LatLng loc) {
-
         if (nameOutlets.isEmpty() || numTickets < 0 || loc == null) {
             iView.showToast("Algum campo não foi preenchido");
         } else {
@@ -53,9 +48,11 @@ public class OutletsPesenter implements IOutlets.IPresenter {
 
     @Override
     public void outletsLinkEvent(int idEvent) {
-        Event e = eventModel.findEventById(1);
-        e.setPontosDevendas(this.outletsModel.getAllOutlets());
-        iView.showToast("Ponto de ventda cadastrado com sucesso");
+        Event e = eventModel.findEventById(idEvent);
+        if (!this.outletsModel.getAllOutlets().isEmpty() || this.outletsModel.getAllOutlets() != null) {
+            e.setPontosDevendas(this.outletsModel.getAllOutlets());
+            iView.showToast("Pontos de ventda cadastrado com sucesso");
+        }
     }
 
     @Override

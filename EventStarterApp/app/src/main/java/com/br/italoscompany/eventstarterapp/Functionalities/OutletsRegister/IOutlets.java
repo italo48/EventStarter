@@ -1,6 +1,5 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.OutletsRegister;
 
-import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.google.android.gms.maps.model.LatLng;
 
