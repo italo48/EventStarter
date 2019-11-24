@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Functionalities.OutletsRegister.OutletsRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
+import com.br.italoscompany.eventstarterapp.Model.entities.MyLatLong;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.br.italoscompany.eventstarterapp.R;
 import com.google.android.gms.common.api.Status;
@@ -73,7 +74,7 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
                 mrPresenter.saveEvent(
                         editTextNomeEvento.getText().toString(),
                         editTextDataEvento.getText().toString(),
-                        new LatLng(latitudeEvento,longitudeEvento),
+                        new MyLatLong(latitudeEvento,longitudeEvento),
                         Collections.<Outlets>emptyList());
 
                 if(checkBoxPontosdeVendas.isChecked() && !editTextNomeEvento.getText().toString().isEmpty()){

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "617408755948",
+    "firebase_url": "https://eventstarterapp.firebaseio.com",
+    "project_id": "eventstarterapp",
+    "storage_bucket": "eventstarterapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617408755948:android:c83d115e845e20346e8dc9",
+        "android_client_info": {
+          "package_name": "com.br.italoscompany.eventstarterapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617408755948-7guicanbcgg2t0qnftlurqrb4c39l0qr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.br.italoscompany.eventstarterapp",
+            "certificate_hash": "98c4b93a1bda042f11353a7cb02ff8c5186d31e6"
+          }
+        },
+        {
+          "client_id": "617408755948-65muvt7b7s2d9ubg9barbj2v0c4irmsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsobSw9GhF8TYG-BLQXv36XHmHAzu4bSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617408755948-65muvt7b7s2d9ubg9barbj2v0c4irmsh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

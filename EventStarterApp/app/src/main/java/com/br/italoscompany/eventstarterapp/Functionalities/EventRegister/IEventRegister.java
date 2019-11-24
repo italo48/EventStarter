@@ -1,5 +1,6 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.EventRegister;
 
+import com.br.italoscompany.eventstarterapp.Model.entities.MyLatLong;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.google.android.gms.maps.model.LatLng;
 
@@ -13,7 +14,7 @@ public interface IEventRegister {
     }
 
     interface IPresenter {
-        void saveEvent(String name, String date, LatLng loc, List<Outlets> outletsList);
+        void saveEvent(String name, String date, MyLatLong loc, List<Outlets> outletsList);
         void addIdGoOutletsActivit();
     }
 }
