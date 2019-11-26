@@ -55,6 +55,12 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        this.mrPresenter.verifyCurrentUser();
+    }
+
+    @Override
     public void onLoginResult(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
@@ -75,6 +81,10 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
     public void goMain() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+    }
+
+    public void makeToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override
