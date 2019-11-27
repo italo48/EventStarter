@@ -10,7 +10,7 @@ import java.util.List;
 public interface IModel {
 
     interface IUserModel {
-        void saveUser(User u);
+        void saveUser(String name, String email, String picPath, String uuid);
         User findUserById(String id);
         List<User> getAllUsers();
         boolean existsUserByLoginAndPassword(String login, String password);

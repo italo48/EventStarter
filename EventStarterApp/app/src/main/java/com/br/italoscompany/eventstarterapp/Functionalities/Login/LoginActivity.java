@@ -1,13 +1,13 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.Login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserResgister.UserRegisterActivity;
@@ -24,18 +24,18 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        if ( mrPresenter == null)
+        if (mrPresenter == null)
             mrPresenter = new LoginPresenter(this);
 
         ((Button) findViewById(R.id.buttonSalvar))
                 .setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mrPresenter.onLogin(
-                        ((EditText) findViewById(R.id.inputLogin)).getText().toString(),
-                        ((EditText) findViewById(R.id.inputSenha)).getText().toString());
-            }
-        });
+                    @Override
+                    public void onClick(View view) {
+                        mrPresenter.onLogin(
+                                ((EditText) findViewById(R.id.inputLogin)).getText().toString(),
+                                ((EditText) findViewById(R.id.inputSenha)).getText().toString());
+                    }
+                });
 
 //        ((Button) findViewById(R.id.buttonDev)).setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
         startActivity(i);
     }
 
-    public void  goUserRegisterForm() {
+    public void goUserRegisterForm() {
         Intent i = new Intent(this, UserRegisterActivity.class);
         startActivity(i);
     }
@@ -88,8 +88,8 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
     }
 
     @Override
-   protected void onDestroy() {
-       mrPresenter.onDestroy();
-       super.onDestroy();
-   }
+    protected void onDestroy() {
+        mrPresenter.onDestroy();
+        super.onDestroy();
+    }
 }

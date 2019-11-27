@@ -1,11 +1,10 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.Login;
 
-import android.view.View;
+import android.app.Activity;
 
 import androidx.annotation.NonNull;
 
 import com.br.italoscompany.eventstarterapp.Model.IModel;
-import com.br.italoscompany.eventstarterapp.Model.entities.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,6 +23,7 @@ public class LoginPresenter implements ILogin.IPresenter {
     public LoginPresenter(ILogin.IView loginView) {
         this.loginView = loginView;
         this.userModel = dbUser;
+        this.mAuth = FirebaseAuth.getInstance();
     }
 
 
@@ -47,20 +47,18 @@ public class LoginPresenter implements ILogin.IPresenter {
 //            loginView.onLoginResult("Login fail");
 //    }
 
+
     @Override
     public void verifyCurrentUser() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null)
-            goToList(currentUser.getUid());
+            loginView.goHome(currentUser.getUid());
     }
-}
-
-
 
 
     public void onLogin(String login, String password) {
         mAuth.signInWithEmailAndPassword(login, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener((Activity) this.loginView, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
@@ -75,3 +73,4 @@ public class LoginPresenter implements ILogin.IPresenter {
                     }
                 });
     }
+}

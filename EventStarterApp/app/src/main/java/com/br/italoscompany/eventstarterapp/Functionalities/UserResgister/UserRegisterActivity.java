@@ -1,9 +1,5 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.UserResgister;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.FileProvider;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -21,7 +17,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
+
 import com.br.italoscompany.eventstarterapp.Functionalities.Login.LoginActivity;
+import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
 import com.br.italoscompany.eventstarterapp.R;
 
 import java.io.File;
@@ -39,6 +40,27 @@ public class UserRegisterActivity extends AppCompatActivity implements IUserRegi
     private Button btnSave, btnCancel;
 
     private String mCurrentPhotoPath;
+
+    private static Bitmap resizeImage(Context context, Bitmap origin, float newWith, float newHeight) {
+        Bitmap newBt = null;
+        int w = origin.getWidth();
+        int h = origin.getHeight();
+
+        float densityFactor = context.getResources().getDisplayMetrics().density;
+
+        float newW = newWith * densityFactor;
+        float newH = newHeight * densityFactor;
+
+        float scalaW = newW / w;
+        float scalaH = newH / h;
+
+        Matrix m = new Matrix();
+        m.postScale(scalaW, scalaH);
+
+        newBt = Bitmap.createBitmap(origin, 0, 0, w, h, m, true);
+
+        return newBt;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +85,7 @@ public class UserRegisterActivity extends AppCompatActivity implements IUserRegi
         imageViewProfilePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               getPermissios();
+                getPermissios();
             }
         });
 
@@ -93,8 +115,7 @@ public class UserRegisterActivity extends AppCompatActivity implements IUserRegi
                 || ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                 || ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-        }
-        else
+        } else
             dispatchTakePictureIntent();
     }
 
@@ -121,8 +142,7 @@ public class UserRegisterActivity extends AppCompatActivity implements IUserRegi
 //                File storageDir = this.getDir("images", Context.MODE_PRIVATE);
                 photoFile = File.createTempFile("PHOTOAPP", ".jpg", storageDir);
                 mCurrentPhotoPath = "file:" + photoFile.getAbsolutePath();
-            }
-            catch(IOException ex){
+            } catch (IOException ex) {
                 Toast.makeText(getApplicationContext(), "Erro ao tirar a foto", Toast.LENGTH_SHORT).show();
             }
 
@@ -142,36 +162,15 @@ public class UserRegisterActivity extends AppCompatActivity implements IUserRegi
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RESULT_CAMERA && resultCode == RESULT_OK) {
             try {
-                ImageView imagem = (ImageView)findViewById(R.id.imageAvatar);
+                ImageView imagem = (ImageView) findViewById(R.id.imageAvatar);
                 Bitmap bm1 = BitmapFactory.decodeStream(getContentResolver().openInputStream(Uri.parse(mCurrentPhotoPath)));
                 File image = new File(this.getFilesDir(), mCurrentPhotoPath);
                 imagem.setImageBitmap(resizeImage(this, bm1, 150, 180));
 
-            }catch(FileNotFoundException fnex){
+            } catch (FileNotFoundException fnex) {
                 Toast.makeText(getApplicationContext(), "Foto não encontrada!", Toast.LENGTH_LONG).show();
             }
         }
-    }
-
-    private static Bitmap resizeImage(Context context, Bitmap origin, float newWith, float newHeight) {
-        Bitmap newBt = null;
-        int w = origin.getWidth();
-        int h = origin.getHeight();
-
-        float densityFactor = context.getResources().getDisplayMetrics().density;
-
-        float newW = newWith * densityFactor;
-        float newH = newHeight * densityFactor;
-
-        float scalaW = newW / w;
-        float scalaH = newH / h;
-
-        Matrix m = new Matrix();
-        m.postScale(scalaW, scalaH);
-
-        newBt = Bitmap.createBitmap(origin, 0, 0, w, h, m, true);
-
-        return newBt;
     }
 
     @Override
@@ -184,5 +183,12 @@ public class UserRegisterActivity extends AppCompatActivity implements IUserRegi
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public void goDashboard(String idUser) {
+        Intent i = new Intent(this, UserDashboardActivity.class);
+        i.putExtra("idUser", idUser);
+        startActivity(i);
     }
 }
