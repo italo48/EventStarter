@@ -4,14 +4,15 @@ import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.MyLatLong;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
+import com.br.italoscompany.eventstarterapp.Model.network.AppDBFirebaseRealtime;
 
 import java.util.List;
 
 import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbEvent;
 
 public class EventRegisterPresenter implements IEventRegister.IPresenter {
-    //private String nextIdEvent;
-    private Event nextEvent;
+    private String nextIdEvent;
+    //private String nextEvent;
     private IEventRegister.IView iViewEventRegister;
     private IModel.IEventModel iEventModel;
 
@@ -34,17 +35,23 @@ public class EventRegisterPresenter implements IEventRegister.IPresenter {
             e.setData(date);
             e.setLocation(loc);
 
-            iEventModel.addEvent(e);
+            //anttigo metodo de add
+            //iEventModel.addEvent(e);
+
+            //mudança
+            String idEvent = AppDBFirebaseRealtime.getRef().child("Events").push().getKey();
+            e.setId(idEvent);
+            AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).setValue(e);
 
             //dps de cadastrado, buscar o evento ja com o id
             //exemplo
-            nextEvent = e;
+            nextIdEvent = idEvent;
         }
     }
 
     @Override
     public void addIdGoOutletsActivit() {
         //so pra nao ficar sem nada
-        iViewEventRegister.goOutletsActivity(nextEvent.getId());
+        iViewEventRegister.goOutletsActivity(nextIdEvent);
     }
 }

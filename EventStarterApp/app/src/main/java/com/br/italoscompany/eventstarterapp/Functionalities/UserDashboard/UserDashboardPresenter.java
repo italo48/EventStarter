@@ -1,5 +1,8 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Location;
@@ -25,17 +28,21 @@ public class UserDashboardPresenter implements IUserDashboard.IPresenter {
     }
 
     @Override
-    public void showDetails(String id) {
+    public void showDetails(int id) {
 
         //antes estava assim, nao entendi o motivo
-        //Event event = eventModel.getAllEvents().get(id);
+        Event event = eventModel.getAllEvents().get(id);
 
         //pegando o evento que tem o id passado
-        Event event = eventModel.findEventById(id);
+        //Event event = eventModel.findEventById(id);
+        //Log.e("erro", "evento null");
 
         //ta aqui, agora so precisamos saber de onde tirar essa latitude e longitude
         //mrsView.goMapsActivity(new Location(-4.97813, -39.0188));
-        mrsView.goMapsActivity(new Location(event.getLocation().getLatidude(), event.getLocation().getLongitude()));
+        //mrsView.goMapsActivity(new Location(event.getLocation().getLatidude(), event.getLocation().getLongitude()));
+
+        //novo metodo
+        mrsView.goMapsActivity2(event, new Location(event.getLocation().getLatidude(), event.getLocation().getLongitude()));
     }
 
     @Override

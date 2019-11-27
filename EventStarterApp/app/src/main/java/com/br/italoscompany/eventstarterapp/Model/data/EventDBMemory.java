@@ -48,7 +48,8 @@ public class EventDBMemory implements IModel.IEventModel {
         //AppDBFirebaseRealtime.getRef().child("Events").push().setValue(e);
 
         //mudança
-        idEvent = AppDBFirebaseRealtime.getRef().child("Events").getKey();
+        idEvent = AppDBFirebaseRealtime.getRef().child("Events").push().getKey();
+        e.setId(idEvent);
         AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).setValue(e);
     }
 

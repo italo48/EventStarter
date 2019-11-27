@@ -15,10 +15,12 @@ public interface IUserDashboard {
         void goUserPerfilActivity(String userId);
         void goAddEventActivity();
         void goMapsActivity(Location loc);
+        //testando
+        void goMapsActivity2(Event event, Location loc);
     }
 
     interface IPresenter {
-        void showDetails(String id);
+        void showDetails(int id);
         void searchEvent(String nameEvent);
         void showEvents();
         void onDestroy();

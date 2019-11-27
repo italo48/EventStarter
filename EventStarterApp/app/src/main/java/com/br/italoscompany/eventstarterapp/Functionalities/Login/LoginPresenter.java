@@ -34,9 +34,10 @@ public class LoginPresenter implements ILogin.IPresenter {
 
     @Override
     public void verifyCurrentUser() {
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        /*FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null)
-            loginView.goHome(currentUser.getUid());
+            loginView.goHome(currentUser.getUid());*/
+        mAuth.signOut();
     }
 
 

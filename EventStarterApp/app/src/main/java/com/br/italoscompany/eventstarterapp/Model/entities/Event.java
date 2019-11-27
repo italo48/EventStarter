@@ -1,5 +1,7 @@
 package com.br.italoscompany.eventstarterapp.Model.entities;
 
+import android.os.Parcel;
+
 import java.util.List;
 
 public class Event {
@@ -19,6 +21,12 @@ public class Event {
         this.nomeDoEvento = nomeDoEvento;
         this.data = data;
         this.location = location;
+    }
+
+    public Event(Parcel in) {
+        id = in.readString();
+        nomeDoEvento = in.readString();
+        data = in.readString();
     }
 
     public String getId() {

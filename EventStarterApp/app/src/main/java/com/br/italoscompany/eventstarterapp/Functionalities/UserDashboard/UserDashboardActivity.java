@@ -18,6 +18,7 @@ import com.br.italoscompany.eventstarterapp.Functionalities.Maps.MapsActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil.UserPerfilActivity;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Location;
+import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.br.italoscompany.eventstarterapp.R;
 
 import java.util.List;
@@ -125,6 +126,18 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
     public void goMapsActivity(Location loc) {
         Intent i = new Intent(this, MapsActivity.class);
         i.putExtra("location", loc);
+        startActivity(i);
+    }
+
+    //testando funcao
+    @Override
+    public void goMapsActivity2(Event e, Location loc) {
+
+        Intent i = new Intent(this, MapsActivity.class);
+        i.putExtra("location", loc);
+        i.putExtra("nameEvent", e.getNomeDoEvento());
+        i.putExtra("dateEvent", e.getData());
+
         startActivity(i);
     }
 
