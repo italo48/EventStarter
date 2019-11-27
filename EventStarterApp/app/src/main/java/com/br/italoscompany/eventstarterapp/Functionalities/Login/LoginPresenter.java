@@ -32,28 +32,11 @@ public class LoginPresenter implements ILogin.IPresenter {
         this.loginView = null;
     }
 
-
-//    @Override
-//    public void onLogin(String login, String password) {
-//        boolean loginFalied = true;
-//        for (User u : this.userModel.getAllUsers()) {
-//            if (u.getLogin().equals(login) && u.getPassword().equals(password)) {
-//                loginFalied = false;
-//                loginView.onLoginResult("Login success");
-//                loginView.goHome(u.getId());
-//            }
-//        }
-//        if(loginFalied)
-//            loginView.onLoginResult("Login fail");
-//    }
-
-
     @Override
     public void verifyCurrentUser() {
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if (currentUser != null)
-//            loginView.goHome(currentUser.getUid());
-        mAuth.signOut();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null)
+            loginView.goHome(currentUser.getUid());
     }
 
 

@@ -2,7 +2,6 @@ package com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil;
 
 import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbUser;
 

@@ -45,25 +45,6 @@ public class UserRegisterPresenter implements IUserRegister.IPresenter {
                         }
                     }
                 });
-
-//        if (name.isEmpty() || email.isEmpty() || login.isEmpty() || password.isEmpty() || picPath.isEmpty()) {
-//            iViewUserRegister.showToast("Erro ao cadastrar, algum campo não foi preenchido");
-//        } else {
-//            //id = this.userModel.getAllUsers().size() + 1;
-//            User user = new User();
-//            //user.setId(id);
-//            user.setName(name);
-//            user.setEmail(email);
-//            user.setLogin(login);
-//            user.setPassword(password);
-//            user.setPhotoDir(picPath);
-//
-//            //fica faltando setar o id do usuario
-//
-//            this.userModel.saveUser(user);
-//            iViewUserRegister.showToast("Cadastro realizado");
-//            iViewUserRegister.goLoginActivity();
-//        }
     }
 
     private void registerDataUser(String name, String email, String picPath, String uuid) {

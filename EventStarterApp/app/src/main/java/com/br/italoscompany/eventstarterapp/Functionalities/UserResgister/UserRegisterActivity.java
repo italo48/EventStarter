@@ -190,5 +190,6 @@ public class UserRegisterActivity extends AppCompatActivity implements IUserRegi
         Intent i = new Intent(this, UserDashboardActivity.class);
         i.putExtra("idUser", idUser);
         startActivity(i);
+        finish();
     }
 }
