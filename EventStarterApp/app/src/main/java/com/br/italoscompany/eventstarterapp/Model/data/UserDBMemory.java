@@ -15,10 +15,9 @@ public class UserDBMemory implements IModel.IUserModel {
     }
 
     @Override
-    public void saveUser(String name, String email, String picPath, String uuid) {
-        AppDBFirebaseRealtime.getRef().child("Users").child(uuid).child("nome").setValue(name);
-        AppDBFirebaseRealtime.getRef().child("Users").child(uuid).child("email").setValue(email);
-        AppDBFirebaseRealtime.getRef().child("Users").child(uuid).child("picPath").setValue(picPath);
+    public void saveUser(User u) {
+        AppDBFirebaseRealtime.getRef().child("Users").child(u.getId()).setValue(u);
+
     }
 
     @Override
@@ -38,7 +37,7 @@ public class UserDBMemory implements IModel.IUserModel {
     @Override
     public boolean existsUserByLoginAndPassword(String login, String password) {
         for (User u : this.users) {
-            if (u.getLogin().equals(login) && u.getPassword().equals(password))
+            if (u.getEmail().equals(login))
                 return true;
         }
         return false;

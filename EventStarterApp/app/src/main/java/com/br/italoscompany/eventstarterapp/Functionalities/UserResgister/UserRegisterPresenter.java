@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.annotation.NonNull;
 
 import com.br.italoscompany.eventstarterapp.Model.IModel;
+import com.br.italoscompany.eventstarterapp.Model.entities.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -66,6 +67,12 @@ public class UserRegisterPresenter implements IUserRegister.IPresenter {
     }
 
     private void registerDataUser(String name, String email, String picPath, String uuid) {
-        userModel.saveUser(name, email, picPath, uuid);
+        User user = new User();
+        user.setId(uuid);
+        user.setName(name);
+        user.setEmail(email);
+        user.setPhotoDir(picPath);
+
+        userModel.saveUser(user);
     }
 }

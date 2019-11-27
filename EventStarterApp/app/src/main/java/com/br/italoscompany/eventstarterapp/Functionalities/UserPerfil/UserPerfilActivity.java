@@ -1,17 +1,20 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.br.italoscompany.eventstarterapp.Functionalities.Login.LoginActivity;
 import com.br.italoscompany.eventstarterapp.Model.entities.User;
 import com.br.italoscompany.eventstarterapp.R;
 
-public class UserPerfilActivity extends AppCompatActivity implements IUserPerfil.IView{
+public class UserPerfilActivity extends AppCompatActivity implements IUserPerfil.IView {
 
     private String userId;
 
@@ -26,9 +29,7 @@ public class UserPerfilActivity extends AppCompatActivity implements IUserPerfil
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_perfil);
-//        userId = Integer.parseInt(getIntent().getExtras().get("idUser").toString());
         userId = getIntent().getExtras().getString("idUser");
-//        userId = 1;
         if (mrPresenter == null)
             mrPresenter = new UserPerfilPresenter(this);
 
@@ -54,5 +55,12 @@ public class UserPerfilActivity extends AppCompatActivity implements IUserPerfil
         textViewIdUser.setText("ID: " + user.getId());
         textViewUseName.setText("Nome: " + user.getName());
         textViewUseEmail.setText("Email: " + user.getEmail());
+    }
+
+    public void vLogout(View v) {
+        mrPresenter.logout();
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
+        finish();
     }
 }

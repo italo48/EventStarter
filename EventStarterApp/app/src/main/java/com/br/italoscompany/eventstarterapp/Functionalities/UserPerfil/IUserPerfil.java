@@ -11,5 +11,6 @@ public interface IUserPerfil {
 
     interface IPresenter {
         void onShowUser(String userId) ;
+        void logout();
     }
 }
