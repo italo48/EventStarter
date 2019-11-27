@@ -13,7 +13,7 @@ import com.br.italoscompany.eventstarterapp.R;
 
 public class UserPerfilActivity extends AppCompatActivity implements IUserPerfil.IView{
 
-    private int userId;
+    private String userId;
 
     private IUserPerfil.IPresenter mrPresenter;
 
@@ -27,7 +27,7 @@ public class UserPerfilActivity extends AppCompatActivity implements IUserPerfil
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_perfil);
 //        userId = Integer.parseInt(getIntent().getExtras().get("idUser").toString());
-        userId = getIntent().getExtras().getInt("idUser");
+        userId = getIntent().getExtras().getString("idUser");
 //        userId = 1;
         if (mrPresenter == null)
             mrPresenter = new UserPerfilPresenter(this);

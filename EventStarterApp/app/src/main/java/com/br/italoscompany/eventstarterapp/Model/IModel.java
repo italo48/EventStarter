@@ -11,27 +11,27 @@ public interface IModel {
 
     interface IUserModel {
         void saveUser(User u);
-        User findUserById(int id);
+        User findUserById(String id);
         List<User> getAllUsers();
         boolean existsUserByLoginAndPassword(String login, String password);
     }
 
     interface IEventModel {
         void addEvent(Event e);
-        void deleteEvent(long id);
-        Event findEventById(int id);
+        void deleteEvent(String id);
+        Event findEventById(String id);
         List<Event> getAllEvents();
     }
 
     interface IAddressModel {
         void addAddress(Address a);
-        void deleteAddress(long id);
+        void deleteAddress(String id);
         List<Address> getAllAddresses();
     }
 
     interface IOutletsModel {
         void addOutlets(Outlets o);
-        void deleteOutlets(int id);
+        void deleteOutlets(String id);
         List<Outlets> getAllOutlets();
     }
 }

@@ -10,7 +10,7 @@ public interface IEventRegister {
 
     interface IView {
         void showToast(String msg);
-        void goOutletsActivity(int idEvent);
+        void goOutletsActivity(String idEvent);
     }
 
     interface IPresenter {

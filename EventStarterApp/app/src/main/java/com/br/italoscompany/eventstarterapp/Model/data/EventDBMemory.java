@@ -18,6 +18,9 @@ public class EventDBMemory implements IModel.IEventModel {
     private List<Outlets> outlets;
     private List<Outlets> outlets2;
 
+    //mudança
+    private String idEvent;
+
     public EventDBMemory() {
         AppDBFirebaseRealtime.getRef().child("Events").addValueEventListener(new ValueEventListener() {
             @Override
@@ -42,22 +45,26 @@ public class EventDBMemory implements IModel.IEventModel {
             standartOut.add(new Outlets());
             e.setPontosDevendas(standartOut);
         }
-        AppDBFirebaseRealtime.getRef().child("Events").push().setValue(e);
+        //AppDBFirebaseRealtime.getRef().child("Events").push().setValue(e);
+
+        //mudança
+        idEvent = AppDBFirebaseRealtime.getRef().child("Events").getKey();
+        AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).setValue(e);
     }
 
     @Override
-    public void deleteEvent(long id) {
+    public void deleteEvent(String id) {
         for (Event e : events) {
-            if (e.getId() == id) {
+            if (e.getId().equals(id)) {
                 events.remove(id);
             }
         }
     }
 
     @Override
-    public Event findEventById(int id) {
+    public Event findEventById(String id) {
         for (Event e : this.events)
-            if (e.getId() == id)
+            if (e.getId().equals(id))
                 return e;
         return null;
     }

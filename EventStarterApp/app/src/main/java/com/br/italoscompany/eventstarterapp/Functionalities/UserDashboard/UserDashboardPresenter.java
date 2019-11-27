@@ -25,10 +25,15 @@ public class UserDashboardPresenter implements IUserDashboard.IPresenter {
     }
 
     @Override
-    public void showDetails(int id) {
-        Event event = eventModel.getAllEvents().get(id);
+    public void showDetails(String id) {
 
-//        ta aqui, agora so precisamos saber de onde tirar essa latitude e longitude
+        //antes estava assim, nao entendi o motivo
+        //Event event = eventModel.getAllEvents().get(id);
+
+        //pegando o evento que tem o id passado
+        Event event = eventModel.findEventById(id);
+
+        //ta aqui, agora so precisamos saber de onde tirar essa latitude e longitude
         //mrsView.goMapsActivity(new Location(-4.97813, -39.0188));
         mrsView.goMapsActivity(new Location(event.getLocation().getLatidude(), event.getLocation().getLongitude()));
     }

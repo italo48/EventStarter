@@ -16,7 +16,7 @@ public class UserPerfilPresenter implements IUserPerfil.IPresenter {
     }
 
     @Override
-    public void onShowUser(int userId) {
+    public void onShowUser(String userId) {
         userIView.showUser(this.userModel.findUserById(userId));
     }
 }

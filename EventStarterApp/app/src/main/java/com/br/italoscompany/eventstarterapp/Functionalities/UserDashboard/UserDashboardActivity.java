@@ -24,7 +24,7 @@ import java.util.List;
 
 public class UserDashboardActivity extends AppCompatActivity implements IUserDashboard.IView  {
 
-    private int userId;
+    private String userId;
 
     private IUserDashboard.IPresenter mrPresenter;
 
@@ -36,7 +36,7 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userdashboard);
-        userId = getIntent().getExtras().getInt("idUser");
+        userId = getIntent().getExtras().getString("idUser");
 
         if (mrPresenter == null)
             mrPresenter = new UserDashboardPresenter(this);
@@ -48,7 +48,8 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
         rv.setLayoutManager(llm);
 
         adapter = new EventListAdapter(mrPresenter);
-//        isso ta certo?
+        //isso ta certo?
+        //foi tu que fez essa pergunta? kkkk
         mrPresenter.showEvents();
     }
 
@@ -106,7 +107,7 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
     }
 
     @Override
-    public void goUserPerfilActivity(int userId) {
+    public void goUserPerfilActivity(String userId) {
         Intent i = new Intent(this, UserPerfilActivity.class);
         i.putExtra("idUser", userId);
         startActivity(i);

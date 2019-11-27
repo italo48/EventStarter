@@ -13,7 +13,7 @@ public class UserDBMemory implements IModel.IUserModel {
         this.users = new ArrayList<>();
 
         User u1 = new User();
-        u1.setId(1);
+        u1.setId("1");
         u1.setEmail("luanderson@gmail.com");
         u1.setLogin("user1");
         u1.setName("Luanderson Lindo");
@@ -21,7 +21,7 @@ public class UserDBMemory implements IModel.IUserModel {
         u1.setPhotoDir("");
 
         User u2 = new User();
-        u2.setId(2);
+        u2.setId("2");
         u2.setEmail("italo@gmail.com");
         u2.setLogin("user2");
         u2.setName("Ítalo O Costa");
@@ -38,9 +38,9 @@ public class UserDBMemory implements IModel.IUserModel {
     }
 
     @Override
-    public User findUserById(int id) {
+    public User findUserById(String id) {
         for (User u : this.users) {
-            if (u.getId() == id)
+            if (u.getId().equals(id))
                 return u;
         }
         return null;

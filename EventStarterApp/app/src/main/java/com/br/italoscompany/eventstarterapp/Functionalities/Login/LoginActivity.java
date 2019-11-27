@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
 
 
     @Override
-    public void goHome(int userId) {
+    public void goHome(String userId) {
         Intent i = new Intent(this, UserDashboardActivity.class);
         i.putExtra("idUser", userId);
         startActivity(i);

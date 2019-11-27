@@ -58,7 +58,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         eventListViewHolder.btnDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.showDetails(i);
+                presenter.showDetails(eventList.get(i).getId());
                 notifyItemChanged(i);
             }
         });

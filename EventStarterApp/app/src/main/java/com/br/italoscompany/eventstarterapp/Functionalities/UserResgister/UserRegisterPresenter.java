@@ -7,7 +7,7 @@ import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbUser
 
 public class UserRegisterPresenter implements IUserRegister.IPresenter {
 
-    private static int id = 0;
+    //private static int id = 0;
     private IUserRegister.IView iViewUserRegister;
     private IModel.IUserModel userModel;
 
@@ -21,14 +21,16 @@ public class UserRegisterPresenter implements IUserRegister.IPresenter {
         if (name.isEmpty() || email.isEmpty() || login.isEmpty() || password.isEmpty() || picPath.isEmpty()) {
             iViewUserRegister.showToast("Erro ao cadastrar, algum campo não foi preenchido");
         } else {
-            id = this.userModel.getAllUsers().size() + 1;
+            //id = this.userModel.getAllUsers().size() + 1;
             User user = new User();
-            user.setId(id);
+            //user.setId(id);
             user.setName(name);
             user.setEmail(email);
             user.setLogin(login);
             user.setPassword(password);
             user.setPhotoDir(picPath);
+
+            //fica faltando setar o id do usuario
 
             this.userModel.saveUser(user);
             iViewUserRegister.showToast("Cadastro realizado");

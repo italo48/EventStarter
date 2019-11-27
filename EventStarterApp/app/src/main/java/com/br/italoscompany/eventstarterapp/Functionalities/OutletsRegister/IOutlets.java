@@ -15,9 +15,9 @@ public interface IOutlets {
     interface IPresenter {
         void getOutlets();
         void saveOutlets(String nameOutlets, int numTickets, LatLng loc);
-        void deleteOutlets(int idOutlets);
-        void outletsLinkEvent(int idEvent);
-        void setEmptyOutlets(int id);
+        void deleteOutlets(String idOutlets);
+        void outletsLinkEvent(String idEvent);
+        void setEmptyOutlets(String id);
         boolean isOutletsEmpty();
 
     }

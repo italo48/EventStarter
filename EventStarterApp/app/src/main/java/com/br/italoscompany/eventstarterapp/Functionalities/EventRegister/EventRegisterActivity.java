@@ -30,7 +30,7 @@ import java.util.List;
 
 public class EventRegisterActivity extends AppCompatActivity implements IEventRegister.IView{
 
-    private int userId;
+    private String userId;
     private boolean isLatitudeSet = false;
 
     private IEventRegister.IPresenter mrPresenter;
@@ -55,7 +55,8 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_register2);
 
-        userId = getIntent().getExtras().getInt("idUser");
+        userId = getIntent().getExtras().getString("idUser");
+
        //autocomplete google
        initPlaces();
        setupAutoCompleteFragment();
@@ -90,7 +91,7 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
     }
 
 
-   private void initPlaces() {
+    private void initPlaces() {
         Places.initialize(this,"AIzaSyAwTGV4CTXz02nESBRPZ3KLsbtbCeXcTCc");
         placesClient = Places.createClient(this);
     }
@@ -122,7 +123,7 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
     }
 
     @Override
-    public void goOutletsActivity(int idEvent) {
+    public void goOutletsActivity(String idEvent) {
         Intent intentOutlets = new Intent(this, OutletsRegisterActivity.class);
         intentOutlets.putExtra("idEvent", idEvent);
         intentOutlets.putExtra("idUser", userId);

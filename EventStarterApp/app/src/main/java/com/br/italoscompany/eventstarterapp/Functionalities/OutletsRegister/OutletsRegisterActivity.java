@@ -29,8 +29,8 @@ import java.util.List;
 
 public class OutletsRegisterActivity extends AppCompatActivity implements IOutlets.IView {
 
-    private int idEvent;
-    private int idUser;
+    private String idEvent;
+    private String idUser;
 
     private IOutlets.IPresenter mrPresenter;
     private OutletsAdapter outletsAdapter;
@@ -61,8 +61,9 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
         initPlaces();
         setupAutoCompleteFragment();
 
-        idEvent = getIntent().getExtras().getInt("idEvent");
-        idUser = getIntent().getExtras().getInt("idUser");
+        //idEvent = getIntent().getExtras().getInt("idEvent");
+        idEvent = getIntent().getExtras().getString("idEvent");
+        idUser = getIntent().getExtras().getString("idUser");
 
         if (mrPresenter == null)
             mrPresenter = new OutletsPesenter(this);

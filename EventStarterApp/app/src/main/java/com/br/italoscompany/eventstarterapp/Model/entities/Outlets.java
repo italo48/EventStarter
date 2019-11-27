@@ -4,14 +4,14 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Outlets {
 
-    private int id;
+    private String id;
     private String nomeDoEstabelecimento;
     private int qtdIngressos;
     private LatLng location;
 
     public Outlets(){ }
 
-    public Outlets(int id, String nomeDoEstabelecimento, int qtdIngressos, LatLng location) {
+    public Outlets(String id, String nomeDoEstabelecimento, int qtdIngressos, LatLng location) {
         this.id = id;
         this.nomeDoEstabelecimento = nomeDoEstabelecimento;
         this.qtdIngressos = qtdIngressos;
@@ -42,11 +42,11 @@ public class Outlets {
         this.location = location;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

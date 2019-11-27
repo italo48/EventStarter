@@ -1,11 +1,9 @@
 package com.br.italoscompany.eventstarterapp.Model.entities;
 
-import com.google.android.gms.maps.model.LatLng;
-
 import java.util.List;
 
 public class Event {
-    private long id;
+    private String id;
     private String nomeDoEvento;
     private String data;
     private MyLatLong location;
@@ -15,7 +13,7 @@ public class Event {
 
     }
 
-    public Event(int id, String nomeDoEvento, String data, MyLatLong location, List<Outlets> pontosDevendas) {
+    public Event(String id, String nomeDoEvento, String data, MyLatLong location, List<Outlets> pontosDevendas) {
         this.id = id;
         this.pontosDevendas = pontosDevendas;
         this.nomeDoEvento = nomeDoEvento;
@@ -23,11 +21,11 @@ public class Event {
         this.location = location;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

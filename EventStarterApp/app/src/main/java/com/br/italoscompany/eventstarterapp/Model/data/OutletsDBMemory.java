@@ -14,7 +14,7 @@ public class OutletsDBMemory implements IModel.IOutletsModel {
     }
 
     @Override
-    public void deleteOutlets(int id) {
+    public void deleteOutlets(String id) {
         this.outlets.remove(id);
     }
 

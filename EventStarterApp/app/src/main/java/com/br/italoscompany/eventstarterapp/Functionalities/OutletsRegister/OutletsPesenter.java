@@ -42,12 +42,12 @@ public class OutletsPesenter implements IOutlets.IPresenter {
     }
 
     @Override
-    public void deleteOutlets(int idOutlets) {
+    public void deleteOutlets(String idOutlets) {
         outletsModel.deleteOutlets(idOutlets);
     }
 
     @Override
-    public void outletsLinkEvent(int idEvent) {
+    public void outletsLinkEvent(String idEvent) {
         Event e = eventModel.findEventById(idEvent);
         if (!this.outletsModel.getAllOutlets().isEmpty() || this.outletsModel.getAllOutlets() != null) {
             e.setPontosDevendas(this.outletsModel.getAllOutlets());
@@ -56,7 +56,7 @@ public class OutletsPesenter implements IOutlets.IPresenter {
     }
 
     @Override
-    public void setEmptyOutlets(int id) {
+    public void setEmptyOutlets(String id) {
         eventModel.findEventById(id).setPontosDevendas(Collections.<Outlets>emptyList());
     }
 
