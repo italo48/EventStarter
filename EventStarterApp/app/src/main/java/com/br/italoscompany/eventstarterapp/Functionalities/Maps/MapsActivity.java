@@ -1,15 +1,11 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.Maps;
 
-import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.br.italoscompany.eventstarterapp.Model.data.EventDBMemory;
-import com.br.italoscompany.eventstarterapp.Model.entities.Event;
+import androidx.fragment.app.FragmentActivity;
+
 import com.br.italoscompany.eventstarterapp.Model.entities.Location;
-import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.br.italoscompany.eventstarterapp.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,7 +22,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private TextView titleEventMap;
     private TextView dateEventMap;
     private TextView ticketsEventMap;
-    String qtdTickets;
 
     //dados do mapa
     private GoogleMap mMap;
@@ -41,7 +36,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //pegando campos com informacoes do evento da activity
         titleEventMap = findViewById(R.id.titleEventMap);
         dateEventMap = findViewById(R.id.dateEventMap);
-        ticketsEventMap = findViewById(R.id.ticketsEventMap);
+        ticketsEventMap = findViewById(R.id.qtdTickets);
 
         //peganando os dados do evento pelo intent
         location = getIntent().getExtras().getParcelable("location");
@@ -49,15 +44,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         String nameEvent = getIntent().getExtras().getString("nameEvent");
         String dateEvent = getIntent().getExtras().getString("dateEvent");
-        //qtdTickets = String.valueOf(getIntent().getExtras().getInt("qtdTickets"));
-        qtdTickets = getIntent().getExtras().getString("qtdTickets");
-
+        int qtdTickets = getIntent().getExtras().getInt("qtdTickets");
 
 
         //setando os campos
         titleEventMap.setText(nameEvent);
         dateEventMap.setText(dateEvent);
-        ticketsEventMap.setText("Quantidade de ingressos: " + String.valueOf(qtdTickets));
+        ticketsEventMap.setText(Integer.toString(qtdTickets));
 
         //dados do mapa
         mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
@@ -71,7 +64,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions()
                 .position(city)
                 .title(titleEventMap.getText().toString())
-                .snippet("quantidade de ingressos: " + String.valueOf(qtdTickets))
+                .snippet("quantidade de ingressos: ")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
     }
 }

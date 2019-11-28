@@ -15,8 +15,6 @@ import java.util.List;
 
 public class EventDBMemory implements IModel.IEventModel {
     private List<Event> events = new ArrayList<>();
-    private List<Outlets> outlets;
-    private List<Outlets> outlets2;
 
     //mudança
     private String idEvent;
@@ -24,20 +22,6 @@ public class EventDBMemory implements IModel.IEventModel {
     private String idOutlets;
 
     public EventDBMemory() {
-        AppDBFirebaseRealtime.getRef().child("Events").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                events.clear();
-                for (DataSnapshot dt : dataSnapshot.getChildren()) {
-                    events.add(dt.getValue(Event.class));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
     }
 
     @Override
@@ -53,9 +37,9 @@ public class EventDBMemory implements IModel.IEventModel {
 
             //mudancas
             Outlets o = new Outlets();
-            idOutlets = AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).child("listOutlests").push().getKey();
+            idOutlets = AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).child("Outlests").push().getKey();
             o.setId(idOutlets);
-            AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).child("List<Outlets>").child(idOutlets).push().getKey();
+            AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).child("Outlets").child(idOutlets).push().getKey();
 
             e.setPontosDevendas(standartOut);
 
@@ -68,7 +52,7 @@ public class EventDBMemory implements IModel.IEventModel {
 
     @Override
     public void deleteEvent(String id) {
-        for (Event e : events) {
+        for (Event e : getAllEvents()) {
             if (e.getId().equals(id)) {
                 events.remove(id);
             }
@@ -77,7 +61,7 @@ public class EventDBMemory implements IModel.IEventModel {
 
     @Override
     public Event findEventById(String id) {
-        for (Event e : this.events)
+        for (Event e : getAllEvents())
             if (e.getId().equals(id))
                 return e;
         return null;
@@ -85,6 +69,20 @@ public class EventDBMemory implements IModel.IEventModel {
 
     @Override
     public List<Event> getAllEvents() {
+        AppDBFirebaseRealtime.getRef().child("Events").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                events.clear();
+                for (DataSnapshot dt : dataSnapshot.getChildren()) {
+                    events.add(dt.getValue(Event.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         return this.events;
     }
 

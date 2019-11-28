@@ -1,16 +1,17 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.MenuItemCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.br.italoscompany.eventstarterapp.Adapters.EventListAdapter;
 import com.br.italoscompany.eventstarterapp.Functionalities.EventRegister.EventRegisterActivity;
@@ -19,11 +20,15 @@ import com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil.UserPerfi
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Location;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
+import com.br.italoscompany.eventstarterapp.Model.network.AppDBFirebaseRealtime;
 import com.br.italoscompany.eventstarterapp.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
-public class UserDashboardActivity extends AppCompatActivity implements IUserDashboard.IView  {
+public class UserDashboardActivity extends AppCompatActivity implements IUserDashboard.IView {
 
     private String userId;
 
@@ -42,7 +47,7 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
         if (mrPresenter == null)
             mrPresenter = new UserDashboardPresenter(this);
 
-        rv = (RecyclerView)findViewById(R.id.rv_event_list);
+        rv = (RecyclerView) findViewById(R.id.rv_event_list);
         rv.setHasFixedSize(true);
 
         llm = new LinearLayoutManager(this);
@@ -133,27 +138,24 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
     @Override
     public void goMapsActivity2(Event e, Location loc) {
 
-        int qtdTickets = 0;
         Intent i = new Intent(this, MapsActivity.class);
         i.putExtra("location", loc);
         i.putExtra("nameEvent", e.getNomeDoEvento());
         i.putExtra("dateEvent", e.getData());
 
         //teste de nulidade
-        if(e.getLocation() == null){
-            i.putExtra("qtdTickets", "ponto de vendas esta nulo");
-        }else{
-            i.putExtra("qtdTickets", "ponto de vendas ok");
-        }
+//        if (e.getLocation() == null) {
+//            i.putExtra("qtdTickets", "ponto de vendas esta nulo");
+//        }
+//        i.putExtra("qtdTickets", "ponto de vendas ok");
 
-        /*if(e.getPontosDevendas() != null){
-            for(Outlets o : e.getPontosDevendas()){
-                qtdTickets += o.getQtdIngressos();
-            }
-            i.putExtra("qtdTickets", 1);
-        }else{
-            i.putExtra("qtdTickets", e.getPontosDevendas().toString());
-        }*/
+//        if (e.getPontosDevendas() != null) {
+//            qtdTickets = 10;
+//            for (Outlets o : e.getPontosDevendas()) {
+//                qtdTickets += o.getQtdIngressos();
+//            }
+//        }
+        i.putExtra("qtdTickets", 0);
 
         startActivity(i);
     }

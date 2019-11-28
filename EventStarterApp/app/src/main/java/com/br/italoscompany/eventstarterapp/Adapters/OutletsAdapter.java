@@ -20,19 +20,21 @@ public class OutletsAdapter extends RecyclerView.Adapter<OutletsAdapter.MyViewHo
 
     private IOutlets.IPresenter mrPresenter;
     private List<Outlets> pontosDeVendas;
+    private String idEvent;
 
     public OutletsAdapter(IOutlets.IPresenter mr) {
         this.mrPresenter = mr;
     }
 
-    public void setOutlets(List<Outlets> outletsList){
+    public void setOutlets(String idEvent, List<Outlets> outletsList) {
         this.pontosDeVendas = outletsList;
+        this.idEvent = idEvent;
     }
 
     @NonNull
     @Override
     public OutletsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_point_of_sale, parent,false);
+        View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_point_of_sale, parent, false);
         return new MyViewHolder(itemLista);
     }
 
@@ -42,8 +44,7 @@ public class OutletsAdapter extends RecyclerView.Adapter<OutletsAdapter.MyViewHo
         holder.btnDeleteOutlets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //mrPresenter.deleteOutlets(position);
-                mrPresenter.deleteOutlets(pontosDeVendas.get(position).getId());
+                mrPresenter.deleteOutlets(idEvent, pontosDeVendas.get(position).getId());
                 notifyItemChanged(position);
             }
         });

@@ -128,7 +128,7 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
 
     @Override
     public void showOutlets(List<Outlets> outletsList) {
-        outletsAdapter.setOutlets(outletsList);
+        outletsAdapter.setOutlets(idEvent, outletsList);
         recyclerViewOutlets.setAdapter(outletsAdapter);
     }
 

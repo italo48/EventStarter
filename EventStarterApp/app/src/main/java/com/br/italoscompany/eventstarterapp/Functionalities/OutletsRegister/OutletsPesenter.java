@@ -40,7 +40,7 @@ public class OutletsPesenter implements IOutlets.IPresenter {
             o.setQtdIngressos(numTickets);
             o.setLocation(loc);
 
-            String idOutlets = AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).child("List<Outlets>").push().getKey();
+            String idOutlets = AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).child("Outlets").push().getKey();
 
             o.setId(idOutlets);
 
@@ -49,8 +49,8 @@ public class OutletsPesenter implements IOutlets.IPresenter {
     }
 
     @Override
-    public void deleteOutlets(String idOutlets) {
-        outletsModel.deleteOutlets(idOutlets);
+    public void deleteOutlets(String idEvent, String idOutlets) {
+        outletsModel.deleteOutlets(idEvent, idOutlets);
     }
 
     @Override

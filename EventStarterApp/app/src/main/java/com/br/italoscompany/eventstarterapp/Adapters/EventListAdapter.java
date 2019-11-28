@@ -24,18 +24,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         this.presenter = presenter;
     }
 
-    public static class EventViewHolder extends RecyclerView.ViewHolder {
-        CardView crd;
-        TextView nameEvent;
-        Button btnDetails;
-        EventViewHolder(View itemView) {
-            super(itemView);
-            crd = (CardView) itemView.findViewById(R.id.crd);
-            nameEvent = (TextView) itemView.findViewById(R.id.name_event);
-            btnDetails = (Button) itemView.findViewById(R.id.btnDetails);
-        }
-    }
-
     public void setEventList(List<Event> eventList) {
         this.eventList = eventList;
     }
@@ -64,9 +52,16 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         });
     }
 
+    public static class EventViewHolder extends RecyclerView.ViewHolder {
+        CardView crd;
+        TextView nameEvent;
+        Button btnDetails;
 
-    @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        super.onAttachedToRecyclerView(recyclerView);
+        EventViewHolder(View itemView) {
+            super(itemView);
+            crd = (CardView) itemView.findViewById(R.id.crd);
+            nameEvent = (TextView) itemView.findViewById(R.id.name_event);
+            btnDetails = (Button) itemView.findViewById(R.id.btnDetails);
+        }
     }
 }

@@ -1,8 +1,5 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard;
 
-import android.util.Log;
-import android.widget.Toast;
-
 import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Location;
@@ -16,6 +13,7 @@ import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbEven
 public class UserDashboardPresenter implements IUserDashboard.IPresenter {
     private IUserDashboard.IView mrsView;
     private IModel.IEventModel eventModel;
+    private int qtdTickets = 0;
 
     public UserDashboardPresenter(IUserDashboard.IView mrsView) {
         this.mrsView = mrsView;
@@ -48,8 +46,8 @@ public class UserDashboardPresenter implements IUserDashboard.IPresenter {
     @Override
     public void searchEvent(String nameEvent) {
         List<Event> finddedEvents = new ArrayList<>();
-        for(Event e : this.eventModel.getAllEvents()) {
-            if(e.getNomeDoEvento().toLowerCase().contains(nameEvent.toLowerCase())) {
+        for (Event e : this.eventModel.getAllEvents()) {
+            if (e.getNomeDoEvento().toLowerCase().contains(nameEvent.toLowerCase())) {
                 finddedEvents.add(e);
             }
         }

@@ -29,7 +29,6 @@ public class EventRegisterPresenter implements IEventRegister.IPresenter {
         } else {
             //nextIdEvent++;
             Event e = new Event();
-            //e.setId(nextIdEvent);
             e.setPontosDevendas(outletsList);
             e.setNomeDoEvento(name);
             e.setData(date);
