@@ -30,7 +30,8 @@ public interface IModel {
     }
 
     interface IOutletsModel {
-        void addOutlets(Outlets o);
+        //void addOutlets(Outlets o);
+        void addOutlets(String idEvent,Outlets o);
         void deleteOutlets(String id);
         List<Outlets> getAllOutlets();
     }

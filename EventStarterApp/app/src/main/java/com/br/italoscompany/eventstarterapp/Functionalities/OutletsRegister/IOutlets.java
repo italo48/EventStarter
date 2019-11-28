@@ -1,5 +1,6 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.OutletsRegister;
 
+import com.br.italoscompany.eventstarterapp.Model.entities.MyLatLong;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.google.android.gms.maps.model.LatLng;
 
@@ -14,7 +15,7 @@ public interface IOutlets {
 
     interface IPresenter {
         void getOutlets();
-        void saveOutlets(String nameOutlets, int numTickets, LatLng loc);
+        void saveOutlets(String idEvent, String nameOutlets, int numTickets, MyLatLong loc);
         void deleteOutlets(String idOutlets);
         void outletsLinkEvent(String idEvent);
         void setEmptyOutlets(String id);

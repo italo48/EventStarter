@@ -7,11 +7,11 @@ public class Outlets {
     private String id;
     private String nomeDoEstabelecimento;
     private int qtdIngressos;
-    private LatLng location;
+    private MyLatLong location;
 
     public Outlets(){ }
 
-    public Outlets(String id, String nomeDoEstabelecimento, int qtdIngressos, LatLng location) {
+    public Outlets(String id, String nomeDoEstabelecimento, int qtdIngressos, MyLatLong location) {
         this.id = id;
         this.nomeDoEstabelecimento = nomeDoEstabelecimento;
         this.qtdIngressos = qtdIngressos;
@@ -34,11 +34,11 @@ public class Outlets {
         this.qtdIngressos = qtdIngressos;
     }
 
-    public LatLng getLocation() {
+    public MyLatLong getLocation() {
         return location;
     }
 
-    public void setLocation(LatLng location) {
+    public void setLocation(MyLatLong location) {
         this.location = location;
     }
 

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.br.italoscompany.eventstarterapp.Adapters.OutletsAdapter;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
+import com.br.italoscompany.eventstarterapp.Model.entities.MyLatLong;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.br.italoscompany.eventstarterapp.R;
 import com.google.android.gms.common.api.Status;
@@ -91,9 +92,10 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
                     o.setQtdIngressos(numTcks);
 
                     mrPresenter.saveOutlets(
+                            idEvent,
                             editTextNameestablishment.getText().toString(),
                             Integer.parseInt(editTextNumTickets.getText().toString()),
-                            new LatLng(latitudeOutlets, longitudeOutlets));
+                            new MyLatLong(latitudeOutlets, longitudeOutlets));
 
                     mrPresenter.getOutlets();
 

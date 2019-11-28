@@ -20,6 +20,8 @@ public class EventDBMemory implements IModel.IEventModel {
 
     //mudança
     private String idEvent;
+    //mudanca no outlets
+    private String idOutlets;
 
     public EventDBMemory() {
         AppDBFirebaseRealtime.getRef().child("Events").addValueEventListener(new ValueEventListener() {
@@ -40,17 +42,28 @@ public class EventDBMemory implements IModel.IEventModel {
 
     @Override
     public void addEvent(Event e) {
-        if (e.getPontosDevendas() == null) {
-            List<Outlets> standartOut = new ArrayList<>();
-            standartOut.add(new Outlets());
-            e.setPontosDevendas(standartOut);
-        }
-        //AppDBFirebaseRealtime.getRef().child("Events").push().setValue(e);
 
-        //mudança
+        //mudanca
         idEvent = AppDBFirebaseRealtime.getRef().child("Events").push().getKey();
         e.setId(idEvent);
         AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).setValue(e);
+
+        if (e.getPontosDevendas() == null) {
+            List<Outlets> standartOut = new ArrayList<>();
+
+            //mudancas
+            Outlets o = new Outlets();
+            idOutlets = AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).child("listOutlests").push().getKey();
+            o.setId(idOutlets);
+            AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).child("List<Outlets>").child(idOutlets).push().getKey();
+
+            e.setPontosDevendas(standartOut);
+
+            //antes
+            //standartOut.add(new Outlets());
+            //e.setPontosDevendas(standartOut);
+        }
+        //AppDBFirebaseRealtime.getRef().child("Events").push().setValue(e);
     }
 
     @Override

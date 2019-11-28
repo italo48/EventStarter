@@ -42,6 +42,7 @@ public class OutletsAdapter extends RecyclerView.Adapter<OutletsAdapter.MyViewHo
         holder.btnDeleteOutlets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //mrPresenter.deleteOutlets(position);
                 mrPresenter.deleteOutlets(pontosDeVendas.get(position).getId());
                 notifyItemChanged(position);
             }

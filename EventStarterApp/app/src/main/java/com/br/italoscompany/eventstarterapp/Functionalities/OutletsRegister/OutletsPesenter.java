@@ -1,8 +1,11 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.OutletsRegister;
 
 import com.br.italoscompany.eventstarterapp.Model.IModel;
+import com.br.italoscompany.eventstarterapp.Model.data.OutletsDBMemory;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
+import com.br.italoscompany.eventstarterapp.Model.entities.MyLatLong;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
+import com.br.italoscompany.eventstarterapp.Model.network.AppDBFirebaseRealtime;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.Collections;
@@ -28,7 +31,7 @@ public class OutletsPesenter implements IOutlets.IPresenter {
     }
 
     @Override
-    public void saveOutlets(String nameOutlets, int numTickets, LatLng loc) {
+    public void saveOutlets(String idEvent, String nameOutlets, int numTickets, MyLatLong loc) {
         if (nameOutlets.isEmpty() || numTickets < 0 || loc == null) {
             iView.showToast("Algum campo não foi preenchido");
         } else {
@@ -37,7 +40,11 @@ public class OutletsPesenter implements IOutlets.IPresenter {
             o.setQtdIngressos(numTickets);
             o.setLocation(loc);
 
-            outletsModel.addOutlets(o);
+            String idOutlets = AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).child("List<Outlets>").push().getKey();
+
+            o.setId(idOutlets);
+
+            outletsModel.addOutlets(idEvent, o);
         }
     }
 
