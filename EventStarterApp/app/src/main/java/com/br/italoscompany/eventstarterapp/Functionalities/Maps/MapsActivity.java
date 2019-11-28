@@ -26,6 +26,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private TextView titleEventMap;
     private TextView dateEventMap;
     private TextView ticketsEventMap;
+    String qtdTickets;
 
     //dados do mapa
     private GoogleMap mMap;
@@ -37,21 +38,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        //pegando campos com informacoes do evento da activity
+        titleEventMap = findViewById(R.id.titleEventMap);
+        dateEventMap = findViewById(R.id.dateEventMap);
+        ticketsEventMap = findViewById(R.id.ticketsEventMap);
+
+        //peganando os dados do evento pelo intent
         location = getIntent().getExtras().getParcelable("location");
         city = new LatLng(location.getLatitude(), location.getLongitude());
 
         String nameEvent = getIntent().getExtras().getString("nameEvent");
         String dateEvent = getIntent().getExtras().getString("dateEvent");
+        //qtdTickets = String.valueOf(getIntent().getExtras().getInt("qtdTickets"));
+        qtdTickets = getIntent().getExtras().getString("qtdTickets");
 
-        //pegando campos com informacoes do evento
-        titleEventMap = findViewById(R.id.titleEventMap);
-        dateEventMap = findViewById(R.id.dateEventMap);
-        ticketsEventMap = findViewById(R.id.titleEventMap);
+
 
         //setando os campos
         titleEventMap.setText(nameEvent);
         dateEventMap.setText(dateEvent);
-        //ticketsEventMap.setText(qtdTicket);
+        ticketsEventMap.setText("Quantidade de ingressos: " + String.valueOf(qtdTickets));
 
         //dados do mapa
         mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
@@ -65,7 +71,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions()
                 .position(city)
                 .title(titleEventMap.getText().toString())
-                .snippet("String.valueOf(qtdTicketsEvent)")
+                .snippet("quantidade de ingressos: " + String.valueOf(qtdTickets))
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
     }
 }

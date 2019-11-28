@@ -133,10 +133,27 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
     @Override
     public void goMapsActivity2(Event e, Location loc) {
 
+        int qtdTickets = 0;
         Intent i = new Intent(this, MapsActivity.class);
         i.putExtra("location", loc);
         i.putExtra("nameEvent", e.getNomeDoEvento());
         i.putExtra("dateEvent", e.getData());
+
+        //teste de nulidade
+        if(e.getLocation() == null){
+            i.putExtra("qtdTickets", "ponto de vendas esta nulo");
+        }else{
+            i.putExtra("qtdTickets", "ponto de vendas ok");
+        }
+
+        /*if(e.getPontosDevendas() != null){
+            for(Outlets o : e.getPontosDevendas()){
+                qtdTickets += o.getQtdIngressos();
+            }
+            i.putExtra("qtdTickets", 1);
+        }else{
+            i.putExtra("qtdTickets", e.getPontosDevendas().toString());
+        }*/
 
         startActivity(i);
     }
