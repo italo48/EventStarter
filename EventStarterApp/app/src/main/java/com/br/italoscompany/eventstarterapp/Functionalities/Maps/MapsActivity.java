@@ -36,7 +36,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //pegando campos com informacoes do evento da activity
         titleEventMap = findViewById(R.id.titleEventMap);
         dateEventMap = findViewById(R.id.dateEventMap);
-        ticketsEventMap = findViewById(R.id.qtdTickets);
+        //ticketsEventMap = findViewById(R.id.qtdTickets);
 
         //peganando os dados do evento pelo intent
         location = getIntent().getExtras().getParcelable("location");
@@ -44,13 +44,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         String nameEvent = getIntent().getExtras().getString("nameEvent");
         String dateEvent = getIntent().getExtras().getString("dateEvent");
-        int qtdTickets = getIntent().getExtras().getInt("qtdTickets");
+        //int qtdTickets = getIntent().getExtras().getInt("qtdTickets");
 
 
         //setando os campos
         titleEventMap.setText(nameEvent);
         dateEventMap.setText(dateEvent);
-        ticketsEventMap.setText(Integer.toString(qtdTickets));
+        //ticketsEventMap.setText(Integer.toString(qtdTickets));
 
         //dados do mapa
         mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
