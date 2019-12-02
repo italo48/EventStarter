@@ -14,12 +14,12 @@ public interface IOutlets {
     }
 
     interface IPresenter {
-        void getOutlets();
+        void getOutlets(String idEvent);
         void saveOutlets(String idEvent, String nameOutlets, int numTickets, MyLatLong loc);
         void deleteOutlets(String idEvent, String idOutlets);
         void outletsLinkEvent(String idEvent);
         void setEmptyOutlets(String id);
-        boolean isOutletsEmpty();
+        boolean isOutletsEmpty(String idEvent);
 
     }
 }

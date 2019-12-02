@@ -26,8 +26,8 @@ public class OutletsPesenter implements IOutlets.IPresenter {
     }
 
     @Override
-    public void getOutlets() {
-        iView.showOutlets(this.outletsModel.getAllOutlets());
+    public void getOutlets(String idEvent) {
+        iView.showOutlets(this.outletsModel.getAllOutlets(idEvent));
     }
 
     @Override
@@ -56,8 +56,8 @@ public class OutletsPesenter implements IOutlets.IPresenter {
     @Override
     public void outletsLinkEvent(String idEvent) {
         Event e = eventModel.findEventById(idEvent);
-        if (!this.outletsModel.getAllOutlets().isEmpty() || this.outletsModel.getAllOutlets() != null) {
-            e.setPontosDevendas(this.outletsModel.getAllOutlets());
+        if (!this.outletsModel.getAllOutlets(idEvent).isEmpty() || this.outletsModel.getAllOutlets(idEvent) != null) {
+            e.setPontosDevendas(this.outletsModel.getAllOutlets(idEvent));
             iView.showToast("Pontos de ventda cadastrado com sucesso");
         }
     }
@@ -68,7 +68,7 @@ public class OutletsPesenter implements IOutlets.IPresenter {
     }
 
     @Override
-    public boolean isOutletsEmpty() {
-        return this.outletsModel.getAllOutlets().isEmpty();
+    public boolean isOutletsEmpty(String idEvent) {
+        return this.outletsModel.getAllOutlets(idEvent).isEmpty();
     }
 }

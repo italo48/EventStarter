@@ -35,8 +35,8 @@ public class OutletsDBMemory implements IModel.IOutletsModel {
     }
 
     @Override
-    public List<Outlets> getAllOutlets() {
-        AppDBFirebaseRealtime.getRef().child("Events").child("Outlets ").addValueEventListener(new ValueEventListener() {
+    public List<Outlets> getAllOutlets(String idEvent) {
+        AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).child("Outlets ").addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

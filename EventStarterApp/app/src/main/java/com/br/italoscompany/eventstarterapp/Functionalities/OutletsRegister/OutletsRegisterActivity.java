@@ -97,7 +97,7 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
                             Integer.parseInt(editTextNumTickets.getText().toString()),
                             new MyLatLong(latitudeOutlets, longitudeOutlets));
 
-                    mrPresenter.getOutlets();
+                    mrPresenter.getOutlets(idEvent);
 
                     editTextNameestablishment.setText("");
                     editTextNumTickets.setText("");
@@ -110,7 +110,7 @@ public class OutletsRegisterActivity extends AppCompatActivity implements IOutle
         btnFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!mrPresenter.isOutletsEmpty()){
+                if(!mrPresenter.isOutletsEmpty(idEvent)){
                     mrPresenter.outletsLinkEvent(idEvent);
                 } else {
                     mrPresenter.setEmptyOutlets(idEvent);

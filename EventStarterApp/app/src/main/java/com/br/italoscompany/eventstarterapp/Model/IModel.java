@@ -43,6 +43,6 @@ public interface IModel {
 
         void deleteOutlets(String idEvent, String idOutlets);
 
-        List<Outlets> getAllOutlets();
+        List<Outlets> getAllOutlets(String idEvent);
     }
 }

@@ -136,7 +136,10 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
 
     //testando funcao
     @Override
-    public void goMapsActivity2(Event e, Location loc) {
+    public void goMapsActivity2(Event e, List<Outlets> outlets, Location loc) {
+        //teste
+        int nTickets = 0;
+        String status;
 
         Intent i = new Intent(this, MapsActivity.class);
         i.putExtra("location", loc);
@@ -144,19 +147,19 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
         i.putExtra("dateEvent", e.getData());
 
         //teste de nulidade
-//        if (e.getLocation() == null) {
-//            i.putExtra("qtdTickets", "ponto de vendas esta nulo");
-//        }
-//        i.putExtra("qtdTickets", "ponto de vendas ok");
+        /*if (outlets == null) {
+            i.putExtra("qtdTickets", "ponto de vendas esta nulo");
+        }else {
+            i.putExtra("qtdTickets", "ponto de vendas ok");
+            //i.putExtra("qtdTickets", String.valueOf(nTickets));
+        } */
 
-//        if (e.getPontosDevendas() != null) {
-//            qtdTickets = 10;
-//            for (Outlets o : e.getPontosDevendas()) {
-//                qtdTickets += o.getQtdIngressos();
-//            }
-//        }
-        i.putExtra("qtdTickets", 0);
-
+        if (outlets != null) {
+            for (Outlets o : outlets) {
+                nTickets = nTickets + o.getQtdIngressos();
+            }
+        }
+        i.putExtra("nTickets", nTickets);
         startActivity(i);
     }
 

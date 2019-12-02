@@ -4,6 +4,7 @@ import android.widget.SearchView;
 
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Location;
+import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface IUserDashboard {
         void goAddEventActivity();
         void goMapsActivity(Location loc);
         //testando
-        void goMapsActivity2(Event event, Location loc);
+        void goMapsActivity2(Event event, List<Outlets> outlets, Location loc);
     }
 
     interface IPresenter {
