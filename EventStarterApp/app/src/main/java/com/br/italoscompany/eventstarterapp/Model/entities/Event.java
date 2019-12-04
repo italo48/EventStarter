@@ -6,12 +6,13 @@ import java.util.List;
 
 public class Event {
     private String id;
+    private String idCreator;
     private String nomeDoEvento;
     private String data;
     private MyLatLong location;
     private List<Outlets> pontosDevendas;
 
-    public  Event() {
+    public Event() {
 
     }
 
@@ -67,5 +68,13 @@ public class Event {
 
     public void setPontosDevendas(List<Outlets> pontosDevendas) {
         this.pontosDevendas = pontosDevendas;
+    }
+
+    public String getIdCreator() {
+        return idCreator;
+    }
+
+    public void setIdCreator(String idCreator) {
+        this.idCreator = idCreator;
     }
 }

@@ -40,7 +40,6 @@ public class OutletsDBMemory implements IModel.IOutletsModel {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                outlets.clear();
                 for (DataSnapshot dt : dataSnapshot.getChildren()) {
                     outlets.add(dt.getValue(Outlets.class));
                 }

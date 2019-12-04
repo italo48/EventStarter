@@ -27,7 +27,7 @@ public class UserRegisterPresenter implements IUserRegister.IPresenter {
     }
 
     @Override
-    public void registerUser(final String name, final String email, String login, String password, final String picPath) {
+    public void registerUser(final String name, final String email, String password, final String picPath) {
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener((Activity) iViewUserRegister, new OnCompleteListener<AuthResult>() {

@@ -7,7 +7,7 @@ public class AppDBFirebaseRealtime {
     private static final FirebaseDatabase database = FirebaseDatabase.getInstance();
     private static final DatabaseReference ref = database.getReference();
 
-    public static DatabaseReference getRef(){
+    public static DatabaseReference getRef() {
         return ref;
     }
 }

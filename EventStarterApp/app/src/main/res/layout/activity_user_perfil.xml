@@ -7,48 +7,72 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <ImageView
-        android:id="@+id/foto_perfil"
-        android:layout_width="70dp"
-        android:layout_height="90dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="@android:dimen/app_icon_size"
-        android:background="@drawable/foto_pessoal" />
 
-
-    <TextView
-        android:id="@+id/idUser"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@color/cardview_dark_background"
-        android:textColor="@color/colorBtnText"
-        android:textSize="25dp" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/email_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@color/cardview_dark_background"
-        android:textColor="@color/colorBtnText"
-        android:textSize="25dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/name_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@color/cardview_dark_background"
-        android:textColor="@color/colorBtnText"
-        android:textSize="25dp" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Perfil"
+                android:textColor="@color/quantum_white_100"
+                android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/btn_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="vLogout"
-        android:text="Sair" />
+            <ImageView
+                android:id="@+id/foto_perfil"
+                android:layout_width="82dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@android:dimen/app_icon_size"
+                android:background="@drawable/foto_pessoal" />
 
+            <TextView
+                android:id="@+id/name_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/cardview_dark_background"
+                android:textColor="@color/colorBtnText"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/email_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/cardview_dark_background"
+                android:textColor="@color/colorBtnText"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Meus eventos"
+                android:textColor="@color/quantum_white_100"
+                android:textSize="30sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_events_rc"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="vLogout"
+                android:text="Sair" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

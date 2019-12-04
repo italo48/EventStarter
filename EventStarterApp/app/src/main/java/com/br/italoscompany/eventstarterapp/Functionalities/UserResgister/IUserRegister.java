@@ -10,6 +10,6 @@ public interface IUserRegister {
     }
 
     interface IPresenter {
-        void registerUser(String name, String email, String login, String password, String picPath);
+        void registerUser(String name, String email, String password, String picPath);
     }
 }

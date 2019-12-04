@@ -49,8 +49,6 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
         rv.setLayoutManager(llm);
 
         adapter = new EventListAdapter(mrPresenter);
-        //isso ta certo?
-        //foi tu que fez essa pergunta? kkkk
         mrPresenter.showEvents();
     }
 

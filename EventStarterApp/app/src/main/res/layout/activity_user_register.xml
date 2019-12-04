@@ -7,176 +7,148 @@
     android:background="#00070707"
     tools:context=".Functionalities.UserResgister.UserRegisterActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#0A0A0A"
-        >
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:background="#0A0A0A"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageLogo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/logo" />
+
+            <ImageView
+                android:id="@+id/imageAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/foto_pessoal" />
+
+            <TextView
+                android:id="@+id/buttonFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/selecionar_foto"
+                android:textColor="@color/colorText"
+                android:textSize="14sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/informeNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="5dp"
+                android:text="Nome:"
+                android:textColor="@color/colorText"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/inputNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/ic_border_cicle"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorText" />
+
+            <TextView
+                android:id="@+id/informeEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="5dp"
+                android:text="Email:"
+                android:textColor="@color/colorText"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/inputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/ic_border_cicle"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorText" />
+
+            <TextView
+                android:id="@+id/informeSenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="5dp"
+                android:text="Senha:"
+                android:textColor="@color/colorText"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/inputSenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/ic_border_cicle"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorText" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#0A0A0A"
-                android:orientation="vertical">
+                android:layout_height="164dp"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/imageLogo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/logo" />
-
-                <ImageView
-                    android:id="@+id/imageAvatar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/foto_pessoal"
-                    />
-
-                <TextView
-                    android:id="@+id/buttonFoto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="@string/selecionar_foto"
-                    android:textColor="@color/colorText"
-                    android:textSize="14sp"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:id="@+id/informeNome"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/buttonSalvar"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="30dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="Nome:"
-                    android:textColor="@color/colorText"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_button_save"
+                    android:text="Salvar"
+                    android:textAllCaps="false"
+                    android:textColor="#F8F7F7"
                     android:textSize="18sp" />
 
-                <EditText
-                    android:id="@+id/inputNome"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/buttonCancelar"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@drawable/ic_border_cicle"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/colorText"/>
-
-                <TextView
-                    android:id="@+id/informeEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="30dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="Email:"
-                    android:textColor="@color/colorText"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_button_cancel"
+                    android:text="Cancelar"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
                     android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/inputEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@drawable/ic_border_cicle"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/colorText" />
-
-                <TextView
-                    android:id="@+id/informeLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="Login:"
-                    android:textColor="@color/colorText"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/inputLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@drawable/ic_border_cicle"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/colorText" />
-
-                <TextView
-                    android:id="@+id/informeSenha"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="Senha:"
-                    android:textColor="@color/colorText"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/inputSenha"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@drawable/ic_border_cicle"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/colorText" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="164dp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/buttonSalvar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/ic_button_save"
-                        android:text="Salvar"
-                        android:textAllCaps="false"
-                        android:textColor="#F8F7F7"
-                        android:textSize="18sp" />
-
-                    <Button
-                        android:id="@+id/buttonCancelar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginRight="30dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/ic_button_cancel"
-                        android:text="Cancelar"
-                        android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
             </LinearLayout>
+
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

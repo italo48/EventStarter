@@ -36,7 +36,7 @@ public class UserRegisterActivity extends AppCompatActivity implements IUserRegi
     private IUserRegister.IPresenter mrPresenter;
 
     private ImageView imageViewProfilePicture;
-    private EditText editTextNameUser, editTextPasswordUser, editTextEmailUser, editTextLoginUser;
+    private EditText editTextNameUser, editTextPasswordUser, editTextEmailUser;
     private Button btnSave, btnCancel;
 
     private String mCurrentPhotoPath;
@@ -74,7 +74,6 @@ public class UserRegisterActivity extends AppCompatActivity implements IUserRegi
 
         editTextNameUser = (EditText) findViewById(R.id.inputNome);
         editTextEmailUser = (EditText) findViewById(R.id.inputEmail);
-        editTextLoginUser = (EditText) findViewById(R.id.inputLogin);
         editTextPasswordUser = (EditText) findViewById(R.id.inputSenha);
 
         btnSave = (Button) findViewById(R.id.buttonSalvar);
@@ -95,7 +94,6 @@ public class UserRegisterActivity extends AppCompatActivity implements IUserRegi
                 mrPresenter.registerUser(
                         editTextNameUser.getText().toString(),
                         editTextEmailUser.getText().toString(),
-                        editTextLoginUser.getText().toString(),
                         editTextPasswordUser.getText().toString(),
                         mCurrentPhotoPath
                 );

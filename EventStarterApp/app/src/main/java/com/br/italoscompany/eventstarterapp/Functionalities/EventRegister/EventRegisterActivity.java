@@ -1,8 +1,5 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.EventRegister;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,13 +8,16 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.br.italoscompany.eventstarterapp.Functionalities.OutletsRegister.OutletsRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard.UserDashboardActivity;
+import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.MyLatLong;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.br.italoscompany.eventstarterapp.R;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.net.PlacesClient;
@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class EventRegisterActivity extends AppCompatActivity implements IEventRegister.IView{
+public class EventRegisterActivity extends AppCompatActivity implements IEventRegister.IView {
 
     private String userId;
     private boolean isLatitudeSet = false;
@@ -50,16 +50,16 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
             Place.Field.LAT_LNG);
     private AutocompleteSupportFragment places_fragment;
 
-   @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_register2);
 
         userId = getIntent().getExtras().getString("idUser");
 
-       //autocomplete google
-       initPlaces();
-       setupAutoCompleteFragment();
+        //autocomplete google
+        initPlaces();
+        setupAutoCompleteFragment();
 
         if (mrPresenter == null)
             mrPresenter = new EventRegisterPresenter(this);
@@ -75,12 +75,12 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
                 mrPresenter.saveEvent(
                         editTextNomeEvento.getText().toString(),
                         editTextDataEvento.getText().toString(),
-                        new MyLatLong(latitudeEvento,longitudeEvento),
-                        Collections.<Outlets>emptyList());
+                        new MyLatLong(latitudeEvento, longitudeEvento),
+                        Collections.<Outlets>emptyList(), userId);
 
-                if(checkBoxPontosdeVendas.isChecked() && !editTextNomeEvento.getText().toString().isEmpty()){
+                if (checkBoxPontosdeVendas.isChecked() && !editTextNomeEvento.getText().toString().isEmpty()) {
                     mrPresenter.addIdGoOutletsActivit();
-                }else if(editTextNomeEvento.getText().toString().isEmpty() || !isLatitudeSet || editTextDataEvento.getText().toString().isEmpty()) {
+                } else if (editTextNomeEvento.getText().toString().isEmpty() || !isLatitudeSet || editTextDataEvento.getText().toString().isEmpty()) {
                     showToast("Não é possivel cadastrar evento vazio");
                 } else {
                     showToast("Evento cadastrado sem pontos de venda");
@@ -92,7 +92,7 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
 
 
     private void initPlaces() {
-        Places.initialize(this,"AIzaSyAwTGV4CTXz02nESBRPZ3KLsbtbCeXcTCc");
+        Places.initialize(this, "AIzaSyAwTGV4CTXz02nESBRPZ3KLsbtbCeXcTCc");
         placesClient = Places.createClient(this);
     }
 
@@ -107,12 +107,12 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
                 longitudeEvento = place.getLatLng().longitude;
                 isLatitudeSet = true;
 
-                Toast.makeText(EventRegisterActivity.this,""+place.getName(),Toast.LENGTH_LONG).show();
+                Toast.makeText(EventRegisterActivity.this, "" + place.getName(), Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onError(@NonNull Status status) {
-                Toast.makeText(EventRegisterActivity.this,""+status.getStatusMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(EventRegisterActivity.this, "" + status.getStatusMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -130,6 +130,11 @@ public class EventRegisterActivity extends AppCompatActivity implements IEventRe
         startActivity(intentOutlets);
         finish();
     }
+
+    @Override
+    public void editEvent(String name, String dt) {
+    }
+
     public void goUserDashboard() {
         Intent i = new Intent(this, UserDashboardActivity.class);
         i.putExtra("idUser", userId);

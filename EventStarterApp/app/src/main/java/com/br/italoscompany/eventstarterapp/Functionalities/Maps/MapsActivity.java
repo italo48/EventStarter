@@ -1,10 +1,12 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.Maps;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.fragment.app.FragmentActivity;
 
+import com.br.italoscompany.eventstarterapp.Functionalities.EventRegister.EventRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Model.entities.Location;
 import com.br.italoscompany.eventstarterapp.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -16,7 +18,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
     //informacoes do evento
     private Location location;
     private TextView titleEventMap;
@@ -68,4 +69,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .snippet("quantidade de ingressos: ")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
     }
+
+//    public void goEdit(View v) {
+//        EventRegisterActivity e = new EventRegisterActivity();
+//        e.editEvent(getIntent().getExtras().getString("nameEvent"), getIntent().getExtras().getString("dateEvent"));
+//    }
 }
