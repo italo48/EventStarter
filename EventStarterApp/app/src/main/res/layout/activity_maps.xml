@@ -77,13 +77,6 @@
                         android:textSize="18sp" />
 
                 </LinearLayout>
-
-<!--                <Button-->
-<!--                    android:id="@+id/btn_edit_event"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:onClick="goEdit"-->
-<!--                    android:text="Editar" />-->
             </LinearLayout>
         </ScrollView>
 

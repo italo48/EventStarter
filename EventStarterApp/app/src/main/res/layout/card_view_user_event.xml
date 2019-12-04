@@ -37,8 +37,23 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:padding="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_action_delete"
+                tools:ignore="VectorDrawableCompat" />
+
+            <ImageView
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="0.1"
+                android:padding="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnDel"
+                app:layout_constraintEnd_toStartOf="@+id/btnDel"
+                app:layout_constraintTop_toTopOf="@+id/btnDel"
+                app:srcCompat="@drawable/quantum_ic_arrow_back_grey600_24"
                 tools:ignore="VectorDrawableCompat" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

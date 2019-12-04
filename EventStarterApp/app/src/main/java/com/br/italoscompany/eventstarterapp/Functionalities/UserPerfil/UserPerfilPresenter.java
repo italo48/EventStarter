@@ -1,7 +1,10 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil;
 
+import android.content.Intent;
+
 import androidx.annotation.NonNull;
 
+import com.br.italoscompany.eventstarterapp.Functionalities.Maps.EventUpdateActivity;
 import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.User;
@@ -76,5 +79,10 @@ public class UserPerfilPresenter implements IUserPerfil.IPresenter {
     public void showOptions(final int i) {
         String idE = events.get(i).getId();
         AppDBFirebaseRealtime.getRef().child("Events").child(idE).removeValue();
+    }
+
+    @Override
+    public void editEv(final int i) {
+        userIView.editEvView(events.get(i).getId());
     }
 }

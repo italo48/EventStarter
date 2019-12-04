@@ -50,18 +50,27 @@ public class EventListUserAdapter extends RecyclerView.Adapter<EventListUserAdap
                 notifyItemChanged(i);
             }
         });
+        eventListViewHolder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.editEv(i);
+                notifyItemChanged(i);
+            }
+        });
     }
 
     public static class EventViewHolder extends RecyclerView.ViewHolder {
         CardView crd;
         TextView nameEvent;
         ImageView btnDel;
+        ImageView btnEdit;
 
         EventViewHolder(View itemView) {
             super(itemView);
             crd = (CardView) itemView.findViewById(R.id.crd);
             nameEvent = (TextView) itemView.findViewById(R.id.name_event);
             btnDel = (ImageView) itemView.findViewById(R.id.btnDel);
+            btnEdit = itemView.findViewById(R.id.btnEdit);
         }
     }
 }

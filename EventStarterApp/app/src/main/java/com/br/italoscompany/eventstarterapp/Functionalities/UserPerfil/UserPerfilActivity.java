@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.br.italoscompany.eventstarterapp.Adapters.EventListUserAdapter;
 import com.br.italoscompany.eventstarterapp.Functionalities.Login.LoginActivity;
+import com.br.italoscompany.eventstarterapp.Functionalities.Maps.EventUpdateActivity;
 import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.User;
@@ -58,6 +59,11 @@ public class UserPerfilActivity extends AppCompatActivity implements IUserPerfil
         rv.setLayoutManager(llm);
         adapter = new EventListUserAdapter(mrPresenter);
         mrPresenter.onShowUser(userId);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         mrPresenter.showMyEvents(userId);
     }
 
@@ -87,5 +93,12 @@ public class UserPerfilActivity extends AppCompatActivity implements IUserPerfil
     public void setAdapter (List<Event> e) {
         adapter.setEventList(e);
         rv.setAdapter(adapter);
+    }
+
+    @Override
+    public void editEvView(String idEv) {
+        Intent i = new Intent(this, EventUpdateActivity.class);
+        i.putExtra("idEvent", idEv);
+        startActivity(i);
     }
 }

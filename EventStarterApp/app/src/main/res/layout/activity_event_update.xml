@@ -1,0 +1,32 @@
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:background="#000"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dados do evento"
+        android:gravity="center"
+        android:textColor="@color/quantum_white_100"
+        android:textSize="30sp"/>
+    <EditText
+        android:textColor="@color/quantum_white_100"
+        android:id="@+id/edt_name_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:textColor="@color/quantum_white_100"
+        android:id="@+id/edt_date_event"
+        android:inputType="date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_event_edit"
+        android:onClick="editEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar"/>
+</LinearLayout>

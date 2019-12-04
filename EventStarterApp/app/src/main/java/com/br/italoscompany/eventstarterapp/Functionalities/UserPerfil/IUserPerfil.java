@@ -13,6 +13,8 @@ public interface IUserPerfil {
         void showUser(User user);
 
         void setAdapter(List<Event> e);
+
+        void editEvView(String idEv);
     }
 
     interface IPresenter {
@@ -21,6 +23,8 @@ public interface IUserPerfil {
         void logout();
 
         void showOptions(int i);
+
+        void editEv(final int i);
 
         void showMyEvents(String userId);
     }

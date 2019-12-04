@@ -49,6 +49,11 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
         rv.setLayoutManager(llm);
 
         adapter = new EventListAdapter(mrPresenter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         mrPresenter.showEvents();
     }
 

@@ -1,5 +1,6 @@
 package com.br.italoscompany.eventstarterapp.Functionalities.Maps;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -29,6 +30,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LatLng city;
     private MapFragment mapFragment;
 
+    private String nameEvent;
+    private String dateEvent;
+    private int nTickets;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,20 +48,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         location = getIntent().getExtras().getParcelable("location");
         city = new LatLng(location.getLatitude(), location.getLongitude());
 
-        String nameEvent = getIntent().getExtras().getString("nameEvent");
-        String dateEvent = getIntent().getExtras().getString("dateEvent");
-        int nTickets = getIntent().getExtras().getInt("nTickets");
+        nameEvent = getIntent().getExtras().getString("nameEvent");
+        dateEvent = getIntent().getExtras().getString("dateEvent");
+        nTickets = getIntent().getExtras().getInt("nTickets");
 
-
-        //setando os campos
-        titleEventMap.setText(nameEvent);
-        dateEventMap.setText(dateEvent);
-        //ticketsEventMap.setText(Integer.toString(qtdTickets));
-        ticketsEventMap.setText(String.valueOf(nTickets));
 
         //dados do mapa
         mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(MapsActivity.this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        titleEventMap.setText(nameEvent);
+        dateEventMap.setText(dateEvent);
+        ticketsEventMap.setText(String.valueOf(nTickets));
     }
 
     @Override
@@ -69,9 +76,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .snippet("quantidade de ingressos: ")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
     }
-
-//    public void goEdit(View v) {
-//        EventRegisterActivity e = new EventRegisterActivity();
-//        e.editEvent(getIntent().getExtras().getString("nameEvent"), getIntent().getExtras().getString("dateEvent"));
-//    }
 }
