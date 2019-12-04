@@ -7,7 +7,6 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,11 +19,7 @@ import com.br.italoscompany.eventstarterapp.Functionalities.UserPerfil.UserPerfi
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Location;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
-import com.br.italoscompany.eventstarterapp.Model.network.AppDBFirebaseRealtime;
 import com.br.italoscompany.eventstarterapp.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -156,9 +151,12 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
 
         if (outlets != null) {
             for (Outlets o : outlets) {
-                nTickets = nTickets + o.getQtdIngressos();
+                nTickets += o.getQtdIngressos();
             }
+        } else {
+            nTickets = 10;
         }
+
         i.putExtra("nTickets", nTickets);
         startActivity(i);
     }

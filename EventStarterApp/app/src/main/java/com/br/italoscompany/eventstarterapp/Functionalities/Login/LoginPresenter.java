@@ -4,25 +4,19 @@ import android.app.Activity;
 
 import androidx.annotation.NonNull;
 
-import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbUser;
-
 public class LoginPresenter implements ILogin.IPresenter {
 
     private ILogin.IView loginView;
-    private IModel.IUserModel userModel;
-
     private FirebaseAuth mAuth;
 
     public LoginPresenter(ILogin.IView loginView) {
         this.loginView = loginView;
-        this.userModel = dbUser;
         this.mAuth = FirebaseAuth.getInstance();
     }
 

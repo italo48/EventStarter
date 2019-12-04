@@ -35,14 +35,6 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
                                 ((EditText) findViewById(R.id.inputSenha)).getText().toString());
                     }
                 });
-
-//        ((Button) findViewById(R.id.buttonDev)).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                goMain();
-//            }
-//        });
-
         btnGoUserRegister = (Button) findViewById(R.id.btnUserRegister);
         btnGoUserRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,12 +50,6 @@ public class LoginActivity extends AppCompatActivity implements ILogin.IView {
         super.onStart();
         this.mrPresenter.verifyCurrentUser();
     }
-
-    @Override
-    public void onLoginResult(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
-
 
     @Override
     public void goHome(String userId) {

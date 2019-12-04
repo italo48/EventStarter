@@ -11,7 +11,6 @@ public interface ILogin {
     }
 
     interface IView {
-        void onLoginResult(String msg);
 
         void goHome(String userId);
 

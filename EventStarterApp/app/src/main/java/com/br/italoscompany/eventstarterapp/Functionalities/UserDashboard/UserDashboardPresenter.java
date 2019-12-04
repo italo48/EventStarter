@@ -2,73 +2,80 @@ package com.br.italoscompany.eventstarterapp.Functionalities.UserDashboard;
 
 import androidx.annotation.NonNull;
 
-import com.br.italoscompany.eventstarterapp.Model.IModel;
 import com.br.italoscompany.eventstarterapp.Model.entities.Event;
 import com.br.italoscompany.eventstarterapp.Model.entities.Location;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.br.italoscompany.eventstarterapp.Model.network.AppDBFirebaseRealtime;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.InternalHelpers;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbEvent;
-import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbOutlets;
-
 
 public class UserDashboardPresenter implements IUserDashboard.IPresenter {
     private IUserDashboard.IView mrsView;
-    private IModel.IEventModel eventModel;
-    private IModel.IOutletsModel outletsModel;
+    private List<Event> events;
     //private int qtdTickets = 0;
 
     public UserDashboardPresenter(IUserDashboard.IView mrsView) {
         this.mrsView = mrsView;
-        this.eventModel = dbEvent;
-        this.outletsModel = dbOutlets;
+        this.events = new ArrayList<>();
     }
 
     @Override
     public void showEvents() {
-        mrsView.showListEventAdapter(eventModel.getAllEvents());
+        AppDBFirebaseRealtime.getRef().child("Events").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                events.clear();
+                for (DataSnapshot event : dataSnapshot.getChildren()) {
+                    events.add(event.getValue(Event.class));
+                }
+                mrsView.showListEventAdapter(events);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
-    public void showDetails(int id) {
+    public void showDetails(final int id) {
 
-        //antes estava assim, nao entendi o motivo
-        Event event = eventModel.getAllEvents().get(id);
+        final Event event = events.get(id);
+        AppDBFirebaseRealtime.getRef().child("Events").child(event.getId()).child("Outlets").addValueEventListener(new ValueEventListener() {
+            List<Outlets> outlets = new ArrayList<>();
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                outlets.clear();
+//                AppDBFirebaseRealtime.getRef().child("Events").child(event.getId()).;
+                    for (DataSnapshot outlet : dataSnapshot.getChildren()) {
+                        outlets.add(outlet.getValue(Outlets.class));
+                }
+                mrsView.goMapsActivity2(event, outlets, new Location(event.getLocation().getLatidude(), event.getLocation().getLongitude()));
+            }
 
-        List<Outlets> outlets = outletsModel.getAllOutlets(event.getId());
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-        //DatabaseReference referenceOutlets = AppDBFirebaseRealtime.getRef().child("Events").child(event.getId()).child("Outlets");
-
-        //pegando o evento que tem o id passado
-        //Event event = eventModel.findEventById(id);
-        //Log.e("erro", "evento null");
-
-        //ta aqui, agora so precisamos saber de onde tirar essa latitude e longitude
-        //mrsView.goMapsActivity(new Location(-4.97813, -39.0188));
-        //mrsView.goMapsActivity(new Location(event.getLocation().getLatidude(), event.getLocation().getLongitude()));
-
-        //novo metodo
-        mrsView.goMapsActivity2(event, outlets, new Location(event.getLocation().getLatidude(), event.getLocation().getLongitude()));
+            }
+        });
     }
 
     @Override
     public void searchEvent(String nameEvent) {
         List<Event> finddedEvents = new ArrayList<>();
-        for (Event e : this.eventModel.getAllEvents()) {
+        for (Event e : this.events) {
             if (e.getNomeDoEvento().toLowerCase().contains(nameEvent.toLowerCase())) {
                 finddedEvents.add(e);
             }
         }
         if (finddedEvents.size() == 0) {
-            mrsView.showListEventAdapter(this.eventModel.getAllEvents());
+            mrsView.showListEventAdapter(this.events);
             mrsView.showToast("Nenhum evento foi encontrado");
         } else {
             mrsView.showListEventAdapter(finddedEvents);
