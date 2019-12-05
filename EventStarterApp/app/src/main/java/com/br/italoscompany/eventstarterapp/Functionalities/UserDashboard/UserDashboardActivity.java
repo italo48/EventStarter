@@ -21,6 +21,7 @@ import com.br.italoscompany.eventstarterapp.Model.entities.Location;
 import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.br.italoscompany.eventstarterapp.R;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class UserDashboardActivity extends AppCompatActivity implements IUserDashboard.IView {
@@ -142,6 +143,9 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
         i.putExtra("location", loc);
         i.putExtra("nameEvent", e.getNomeDoEvento());
         i.putExtra("dateEvent", e.getData());
+
+        i.putExtra("outlets", (Serializable) outlets);
+
 
         //teste de nulidade
         /*if (outlets == null) {

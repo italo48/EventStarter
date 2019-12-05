@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -65,7 +66,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Quantidade de ingressos: "
+                        android:text="Quantidade total de ingressos: "
                         android:textColor="#FFFFFF"
                         android:textSize="18sp" />
 
@@ -76,6 +77,58 @@
                         android:textColor="#FFFFFF"
                         android:textSize="18sp" />
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="15dp"
+                    android:paddingTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageViewEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:src="@drawable/ic_local_event" />
+
+                        <TextView
+                            android:id="@+id/textViewLocalEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:text="Local de realização do Evento."
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageViewOutlets"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:src="@drawable/ic_local_outlets" />
+
+                        <TextView
+                            android:id="@+id/textViewLocalOutlets"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:text="Pontos de vendas de ingressos."
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

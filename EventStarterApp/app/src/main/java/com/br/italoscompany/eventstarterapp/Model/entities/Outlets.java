@@ -1,8 +1,8 @@
 package com.br.italoscompany.eventstarterapp.Model.entities;
 
-import com.google.android.gms.maps.model.LatLng;
+import java.io.Serializable;
 
-public class Outlets {
+public class Outlets implements Serializable {
 
     private String id;
     private String nomeDoEstabelecimento;

@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.br.italoscompany.eventstarterapp.Functionalities.EventRegister.EventRegisterActivity;
 import com.br.italoscompany.eventstarterapp.Model.entities.Location;
+import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.br.italoscompany.eventstarterapp.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,12 +19,15 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.List;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     //informacoes do evento
     private Location location;
     private TextView titleEventMap;
     private TextView dateEventMap;
     private TextView ticketsEventMap;
+    private List<Outlets> outletsEvent;
 
     //dados do mapa
     private GoogleMap mMap;
@@ -47,6 +51,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //peganando os dados do evento pelo intent
         location = getIntent().getExtras().getParcelable("location");
         city = new LatLng(location.getLatitude(), location.getLongitude());
+
+        outletsEvent = (List<Outlets>) getIntent().getSerializableExtra("outlets");
 
         nameEvent = getIntent().getExtras().getString("nameEvent");
         dateEvent = getIntent().getExtras().getString("dateEvent");
@@ -73,7 +79,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions()
                 .position(city)
                 .title(titleEventMap.getText().toString())
-                .snippet("quantidade de ingressos: ")
+                .snippet("")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+        for(Outlets o : outletsEvent){
+
+            LatLng localOutlets = new LatLng(o.getLocation().getLatidude(), o.getLocation().getLongitude());
+
+            mMap.addMarker(new MarkerOptions()
+                    .position(localOutlets)
+                    .title(o.getNomeDoEstabelecimento())
+                    .snippet("quantidade de ingressos: " + String.valueOf(o.getQtdIngressos()))
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        }
+
     }
 }

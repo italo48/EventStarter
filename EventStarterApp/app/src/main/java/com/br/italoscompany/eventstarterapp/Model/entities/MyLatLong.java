@@ -1,6 +1,8 @@
 package com.br.italoscompany.eventstarterapp.Model.entities;
 
-public class MyLatLong {
+import java.io.Serializable;
+
+public class MyLatLong implements Serializable {
     private double latidude;
     private double longitude;
 
