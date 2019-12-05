@@ -47,7 +47,6 @@ public class UserDashboardActivity extends AppCompatActivity implements IUserDas
 
         llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
-
         adapter = new EventListAdapter(mrPresenter);
     }
 

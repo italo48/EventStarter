@@ -8,7 +8,9 @@ import com.br.italoscompany.eventstarterapp.Model.entities.Outlets;
 import com.br.italoscompany.eventstarterapp.Model.network.AppDBFirebaseRealtime;
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbEvent;
 import static com.br.italoscompany.eventstarterapp.Model.data.AppDBMemory.dbOutlets;
@@ -18,11 +20,13 @@ public class OutletsPesenter implements IOutlets.IPresenter {
     private IModel.IOutletsModel outletsModel;
     private IModel.IEventModel eventModel;
     private IOutlets.IView iView;
+    private List<Outlets> outlets;
 
     public OutletsPesenter(IOutlets.IView iView) {
         this.iView = iView;
         this.outletsModel = dbOutlets;
         this.eventModel = dbEvent;
+        this.outlets = new ArrayList<>();
     }
 
     @Override
@@ -45,6 +49,7 @@ public class OutletsPesenter implements IOutlets.IPresenter {
             o.setId(idOutlets);
 
             outletsModel.addOutlets(idEvent, o);
+            outlets.add(o);
         }
     }
 
@@ -55,11 +60,14 @@ public class OutletsPesenter implements IOutlets.IPresenter {
 
     @Override
     public void outletsLinkEvent(String idEvent) {
-        Event e = eventModel.findEventById(idEvent);
-        if (!this.outletsModel.getAllOutlets(idEvent).isEmpty() || this.outletsModel.getAllOutlets(idEvent) != null) {
-            e.setPontosDevendas(this.outletsModel.getAllOutlets(idEvent));
-            iView.showToast("Pontos de ventda cadastrado com sucesso");
-        }
+////        Event e = eventModel.findEventById(idEvent);
+////        if (!this.outletsModel.getAllOutlets(idEvent).isEmpty() || this.outletsModel.getAllOutlets(idEvent) != null) {
+////            e.setPontosDevendas(this.outletsModel.getAllOutlets(idEvent));
+//        for (Outlets o : outlets) {
+//            AppDBFirebaseRealtime.getRef().child("Events").child(idEvent).child("Outlets").push().setValue(o);
+//        }
+//            iView.showToast("Pontos de ventda cadastrado com sucesso");
+////        }
     }
 
     @Override

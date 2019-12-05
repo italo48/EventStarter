@@ -79,6 +79,7 @@ public class UserPerfilPresenter implements IUserPerfil.IPresenter {
     public void showOptions(final int i) {
         String idE = events.get(i).getId();
         AppDBFirebaseRealtime.getRef().child("Events").child(idE).removeValue();
+        events.remove(i);
     }
 
     @Override

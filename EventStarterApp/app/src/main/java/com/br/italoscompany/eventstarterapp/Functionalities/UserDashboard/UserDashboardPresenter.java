@@ -26,14 +26,14 @@ public class UserDashboardPresenter implements IUserDashboard.IPresenter {
 
     @Override
     public void showEvents() {
-        mrsView.showListEventAdapter(events);
         AppDBFirebaseRealtime.getRef().child("Events").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 events.clear();
                 for (DataSnapshot event : dataSnapshot.getChildren()) {
-                    if (event.getValue(Event.class) != null)
+                    if (event.getValue(Event.class) != null) {
                         events.add(event.getValue(Event.class));
+                    }
                 }
             }
 
@@ -41,6 +41,7 @@ public class UserDashboardPresenter implements IUserDashboard.IPresenter {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+        mrsView.showListEventAdapter(events);
     }
 
     @Override
